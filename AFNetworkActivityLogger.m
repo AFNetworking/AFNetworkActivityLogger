@@ -191,8 +191,11 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
 + (id)objectToPrintToPrintForOperation:(AFURLConnectionOperation*)operation {
     id objectToPrint = nil;
     
+# pragma clang diagnostic push
+# pragma clang diagnostic ignored "-Wundeclared-selector"
     if ([operation respondsToSelector:@selector(responseObject)])
         objectToPrint = [operation performSelector:@selector(responseObject)];
+# pragma clang diagnostic pop
     
     else if ([operation respondsToSelector:@selector(responseString)])
         objectToPrint = [operation performSelector:@selector(responseString)];
