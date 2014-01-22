@@ -98,9 +98,27 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
 
     objc_setAssociatedObject(notification.object, AFNetworkRequestStartDate, [NSDate date], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
-    NSString *body = nil;
+    // -- Initially
+//    NSString *body = nil;
+//    if ([request HTTPBody]) {
+//        body = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
+//    }
+    
+    id body;
     if ([request HTTPBody]) {
-        body = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
+        // Try to get the JSON from the http body
+        NSError* error = nil;
+        body = [NSJSONSerialization JSONObjectWithData:[request HTTPBody]
+                                               options:NSJSONReadingAllowFragments
+                                                 error:&error];
+        
+        if (error)
+            NSLog(@"Couldn't get JSON from body: %@", [error localizedDescription]);
+        
+        
+        // If the body is nil, fallback on NSString
+        if (!body)
+            body = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
     }
 
     switch (self.level) {
@@ -135,10 +153,13 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
         responseHeaderFields = [(NSHTTPURLResponse *)response allHeaderFields];
     }
 
-    NSString *responseString = nil;
-    if ([[notification object] respondsToSelector:@selector(responseString)]) {
-        responseString = [[notification object] responseString];
-    }
+    // -- Initially
+//    NSString *responseString = nil;
+//    if ([[notification object] respondsToSelector:@selector(responseString)]) {
+//        responseString = [[notification object] responseString];
+//    }
+
+    id objectToPrint = [self.class objectToPrintToPrintForOperation:notification.object];
 
     NSTimeInterval elapsedTime = [[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(notification.object, AFNetworkRequestStartDate)];
 
@@ -155,7 +176,7 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
     } else {
         switch (self.level) {
             case AFLoggerLevelDebug:
-                NSLog(@"%ld '%@' [%.04f s]: %@ %@", (long)responseStatusCode, [[response URL] absoluteString], elapsedTime, responseHeaderFields, responseString);
+                NSLog(@"%ld '%@' [%.04f s]: %@ %@", (long)responseStatusCode, [[response URL] absoluteString], elapsedTime, responseHeaderFields, objectToPrint);
                 break;
             case AFLoggerLevelInfo:
                 NSLog(@"%ld '%@' [%.04f s]", (long)responseStatusCode, [[response URL] absoluteString], elapsedTime);
@@ -164,6 +185,19 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
                 break;
         }
     }
+}
+
+
++ (id)objectToPrintToPrintForOperation:(AFURLConnectionOperation*)operation {
+    id objectToPrint = nil;
+    
+    if ([operation respondsToSelector:@selector(responseObject)])
+        objectToPrint = [operation performSelector:@selector(responseObject)];
+    
+    else if ([operation respondsToSelector:@selector(responseString)])
+        objectToPrint = [operation performSelector:@selector(responseString)];
+    
+    return objectToPrint;
 }
 
 @end
