@@ -98,11 +98,9 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
 
     objc_setAssociatedObject(notification.object, AFNetworkRequestStartDate, [NSDate date], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    id body = [self.class objectToPrintForRequest:request];
-
     switch (self.level) {
         case AFLoggerLevelDebug:
-            NSLog(@"%@ '%@': %@ %@", [request HTTPMethod], [[request URL] absoluteString], [request allHTTPHeaderFields], body);
+            NSLog(@"%@ '%@': %@ %@", [request HTTPMethod], [[request URL] absoluteString], [request allHTTPHeaderFields], [self.class bodyToPrintForRequest:request]);
             break;
         case AFLoggerLevelInfo:
             NSLog(@"%@ '%@'", [request HTTPMethod], [[request URL] absoluteString]);
@@ -162,18 +160,32 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
 
 #pragma mark - Object to print
 
-+ (id)objectToPrintForRequest:(NSURLRequest *request) {
++ (id)bodyToPrintForRequest:(NSURLRequest *)request {
     id body = nil;
     
     if ([request HTTPBody]) {
-        // Try to get a JSON document from the http body
-        body = [NSJSONSerialization JSONObjectWithData:[request HTTPBody]
-                                               options:NSJSONReadingAllowFragments
-                                                 error:nil];
+        // Parse the body as a string
+        NSString *queryString = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
         
-        // If the body is nil, fallback on NSString
-        if (!body)
-            body = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
+        // Parse a queryStringPairs from the http body
+        NSArray *queryStringPairs = [queryString componentsSeparatedByString:@"&"];
+        
+        // Init queryStringPairsDictionary if needed
+        NSMutableDictionary *queryStringPairsDictionary = (queryStringPairs.count) ? [[NSMutableDictionary alloc] init] : nil;
+        
+        // Decode URL-encoded query pairs
+        for (NSString *queryStringPair in queryStringPairs) {
+            id value = [[[queryStringPair componentsSeparatedByString:@"="][1]
+                         stringByReplacingOccurrencesOfString:@"+" withString:@" "]
+                        stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            
+            NSString *key = [queryStringPair componentsSeparatedByString:@"="][0];
+            
+            [queryStringPairsDictionary setValue:value
+                                          forKey:key];
+        }
+        
+        body = (queryStringPairsDictionary.count) ? queryStringPairsDictionary : queryString;
     }
     
     return body;
