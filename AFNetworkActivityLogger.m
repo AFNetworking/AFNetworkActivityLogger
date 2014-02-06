@@ -97,29 +97,8 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
     }
 
     objc_setAssociatedObject(notification.object, AFNetworkRequestStartDate, [NSDate date], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-
-    // -- Initially
-//    NSString *body = nil;
-//    if ([request HTTPBody]) {
-//        body = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
-//    }
     
-    id body;
-    if ([request HTTPBody]) {
-        // Try to get the JSON from the http body
-        NSError* error = nil;
-        body = [NSJSONSerialization JSONObjectWithData:[request HTTPBody]
-                                               options:NSJSONReadingAllowFragments
-                                                 error:&error];
-        
-        if (error)
-            NSLog(@"Couldn't get JSON from body: %@", [error localizedDescription]);
-        
-        
-        // If the body is nil, fallback on NSString
-        if (!body)
-            body = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
-    }
+    id body = [self.class objectToPrintForRequest:request];
 
     switch (self.level) {
         case AFLoggerLevelDebug:
@@ -152,15 +131,9 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
         responseStatusCode = [(NSHTTPURLResponse *)response statusCode];
         responseHeaderFields = [(NSHTTPURLResponse *)response allHeaderFields];
     }
-
-    // -- Initially
-//    NSString *responseString = nil;
-//    if ([[notification object] respondsToSelector:@selector(responseString)]) {
-//        responseString = [[notification object] responseString];
-//    }
-
-    id objectToPrint = [self.class objectToPrintToPrintForOperation:notification.object];
-
+    
+    // Try to get the operation's response object first. If it's nil, get the response string.
+    id objectToPrint = [self.class objectToPrintForOperation:notification.object];
     NSTimeInterval elapsedTime = [[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(notification.object, AFNetworkRequestStartDate)];
 
     if (error) {
@@ -187,8 +160,27 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
     }
 }
 
+#pragma mark - Object to print
 
-+ (id)objectToPrintToPrintForOperation:(AFURLConnectionOperation*)operation {
++ (id)objectToPrintForRequest:(NSURLRequest *request) {
+    id body = nil;
+    
+    if ([request HTTPBody]) {
+        // Try to get a JSON document from the http body
+        body = [NSJSONSerialization JSONObjectWithData:[request HTTPBody]
+                                               options:NSJSONReadingAllowFragments
+                                                 error:nil];
+        
+        // If the body is nil, fallback on NSString
+        if (!body)
+            body = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
+    }
+    
+    return body;
+}
+
+
++ (id)objectToPrintForOperation:(AFURLConnectionOperation*)operation {
     id objectToPrint = nil;
     
 # pragma clang diagnostic push
