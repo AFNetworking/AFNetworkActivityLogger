@@ -97,15 +97,10 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
     }
 
     objc_setAssociatedObject(notification.object, AFNetworkRequestStartDate, [NSDate date], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-
-    NSString *body = nil;
-    if ([request HTTPBody]) {
-        body = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
-    }
-
+    
     switch (self.level) {
         case AFLoggerLevelDebug:
-            NSLog(@"%@ '%@': %@ %@", [request HTTPMethod], [[request URL] absoluteString], [request allHTTPHeaderFields], body);
+            NSLog(@"%@ '%@': %@ %@", [request HTTPMethod], [[request URL] absoluteString], [request allHTTPHeaderFields], [self.class bodyToPrintForRequest:request]);
             break;
         case AFLoggerLevelInfo:
             NSLog(@"%@ '%@'", [request HTTPMethod], [[request URL] absoluteString]);
@@ -134,12 +129,9 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
         responseStatusCode = [(NSHTTPURLResponse *)response statusCode];
         responseHeaderFields = [(NSHTTPURLResponse *)response allHeaderFields];
     }
-
-    NSString *responseString = nil;
-    if ([[notification object] respondsToSelector:@selector(responseString)]) {
-        responseString = [[notification object] responseString];
-    }
-
+    
+    // Try to get the operation's response object first. If it's nil, get the response string.
+    id objectToPrint = [self.class objectToPrintForOperation:notification.object];
     NSTimeInterval elapsedTime = [[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(notification.object, AFNetworkRequestStartDate)];
 
     if (error) {
@@ -155,7 +147,7 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
     } else {
         switch (self.level) {
             case AFLoggerLevelDebug:
-                NSLog(@"%ld '%@' [%.04f s]: %@ %@", (long)responseStatusCode, [[response URL] absoluteString], elapsedTime, responseHeaderFields, responseString);
+                NSLog(@"%ld '%@' [%.04f s]: %@ %@", (long)responseStatusCode, [[response URL] absoluteString], elapsedTime, responseHeaderFields, objectToPrint);
                 break;
             case AFLoggerLevelInfo:
                 NSLog(@"%ld '%@' [%.04f s]", (long)responseStatusCode, [[response URL] absoluteString], elapsedTime);
@@ -164,6 +156,55 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
                 break;
         }
     }
+}
+
+#pragma mark - Object to print
+
++ (id)bodyToPrintForRequest:(NSURLRequest *)request {
+    id body = nil;
+    
+    if ([request HTTPBody]) {
+        // Parse the body as a string
+        NSString *queryString = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
+        
+        // Parse a queryStringPairs from the http body
+        NSArray *queryStringPairs = [queryString componentsSeparatedByString:@"&"];
+        
+        // Init queryStringPairsDictionary if needed
+        NSMutableDictionary *queryStringPairsDictionary = (queryStringPairs.count) ? [[NSMutableDictionary alloc] init] : nil;
+        
+        // Decode URL-encoded query pairs
+        for (NSString *queryStringPair in queryStringPairs) {
+            id value = [[[queryStringPair componentsSeparatedByString:@"="][1]
+                         stringByReplacingOccurrencesOfString:@"+" withString:@" "]
+                        stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            
+            NSString *key = [queryStringPair componentsSeparatedByString:@"="][0];
+            
+            [queryStringPairsDictionary setValue:value
+                                          forKey:key];
+        }
+        
+        body = (queryStringPairsDictionary.count) ? queryStringPairsDictionary : queryString;
+    }
+    
+    return body;
+}
+
+
++ (id)objectToPrintForOperation:(AFURLConnectionOperation*)operation {
+    id objectToPrint = nil;
+    
+# pragma clang diagnostic push
+# pragma clang diagnostic ignored "-Wundeclared-selector"
+    if ([operation respondsToSelector:@selector(responseObject)])
+        objectToPrint = [operation performSelector:@selector(responseObject)];
+# pragma clang diagnostic pop
+    
+    else if ([operation respondsToSelector:@selector(responseString)])
+        objectToPrint = [operation performSelector:@selector(responseString)];
+    
+    return objectToPrint;
 }
 
 @end
