@@ -2,7 +2,7 @@
 
 `AFNetworkActivityLogger` is an extension for [AFNetworking](http://github.com/AFNetworking/AFNetworking/) 2.0 that logs network requests as they are sent and received.
 
-> `AFNetworkActivityLogger` listens for `AFNetworkingOperationDidStartNotification` / `AFNetworkingOperationDidFinishNotification` and `AFNetworkingTaskDidStartNotification` / `AFNetworkingTaskDidFinishNotification` notifications, which are posted by AFNetworking as request operations and session tasks are started and finish. For further customization of logging output, users are encouraged to implement desired functionality by listening for these notifications.
+> `AFNetworkActivityLogger` listens for `AFNetworkingOperationDidStartNotification` / `AFNetworkingOperationDidFinishNotification` and `AFNetworkingTaskDidResumeNotification` / `AFNetworkingTaskDidCompleteNotification` notifications, which are posted by AFNetworking as request operations and session tasks are started and finish. For further customization of logging output, users are encouraged to implement desired functionality by listening for these notifications.
 
 ## Usage
 
