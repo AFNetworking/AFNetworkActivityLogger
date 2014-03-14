@@ -175,14 +175,19 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
         
         // Decode URL-encoded query pairs
         for (NSString *queryStringPair in queryStringPairs) {
-            id value = [[[queryStringPair componentsSeparatedByString:@"="][1]
-                         stringByReplacingOccurrencesOfString:@"+" withString:@" "]
-                        stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSArray *components = [queryStringPair componentsSeparatedByString:@"="];
+            NSLog(@"%@", components);
             
-            NSString *key = [queryStringPair componentsSeparatedByString:@"="][0];
-            
-            [queryStringPairsDictionary setValue:value
-                                          forKey:key];
+            if (components.count>1) {
+                id value = [[components[1]
+                             stringByReplacingOccurrencesOfString:@"+" withString:@" "]
+                            stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                
+                NSString *key = [queryStringPair componentsSeparatedByString:@"="][0];
+                
+                [queryStringPairsDictionary setValue:value
+                                              forKey:key];
+            }
         }
         
         body = (queryStringPairsDictionary.count) ? queryStringPairsDictionary : queryString;
