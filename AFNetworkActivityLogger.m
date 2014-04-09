@@ -131,7 +131,7 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
     }
     
     // Try to get the operation's response object first. If it's nil, get the response string.
-    id objectToPrint = [self.class objectToPrintForOperation:notification.object];
+    id objectToPrint = [self.class objectToPrintForNotification:notification];
     NSTimeInterval elapsedTime = [[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(notification.object, AFNetworkRequestStartDate)];
 
     if (error) {
@@ -197,9 +197,17 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
 }
 
 
-+ (id)objectToPrintForOperation:(AFURLConnectionOperation*)operation {
++ (id)objectToPrintForNotification:(NSNotification*)notification {
+    // Object to be returned
     id objectToPrint = nil;
     
+    // Get the serialized response and return it if it's not nil.
+    objectToPrint = notification.userInfo[AFNetworkingTaskDidCompleteSerializedResponseKey];
+    if (objectToPrint && ! [objectToPrint isKindOfClass:[NSNull class]])
+        return objectToPrint;
+    
+    // Fallback with responseObject or- responseString
+    id operation = notification.object;
 # pragma clang diagnostic push
 # pragma clang diagnostic ignored "-Wundeclared-selector"
     if ([operation respondsToSelector:@selector(responseObject)])
@@ -211,5 +219,6 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
     
     return objectToPrint;
 }
+
 
 @end
