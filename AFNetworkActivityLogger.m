@@ -197,7 +197,7 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
 }
 
 
-+ (id)objectToPrintForNotification:(NSNotification*)notification {
++ (id)objectToPrintForNotification:(NSNotification *)notification {
     // Object to be returned
     id objectToPrint = nil;
     
