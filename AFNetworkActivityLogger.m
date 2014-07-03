@@ -37,6 +37,49 @@ static NSURLRequest * AFNetworkRequestFromNotification(NSNotification *notificat
     return request;
 }
 
+@interface NSURLRequest (AFCURL)
+
+- (NSString *)af_curlCommand;
+
+@end
+
+@implementation NSURLRequest (AFCURL)
+
+- (NSString *)af_curlCommand {
+    NSMutableString *result = [[NSMutableString alloc] init];
+    
+    [result appendFormat:@"curl -k -X %@ ", [self HTTPMethod]];
+    
+    if ([self HTTPBody]) {
+        NSString *params = [[NSString alloc] initWithData:[self HTTPBody] encoding:NSUTF8StringEncoding];
+        [result appendFormat:@"-d \"%@\" ", params];
+    }
+    
+    for (NSString *key in [self allHTTPHeaderFields]) {
+        [result appendFormat:@"-H \"%@: %@\" ", key, [self valueForHTTPHeaderField:key]];
+    }
+    
+    if ([self HTTPShouldHandleCookies]) {
+        NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+        NSArray *cookies = [storage cookiesForURL:[self URL]];
+        
+        if (cookies.count > 0) {
+            NSMutableString *cookiesString = [[NSMutableString alloc] init];
+            for (NSHTTPCookie *cookie in cookies) {
+                [cookiesString appendFormat:@"%@=%@;", [cookie name], [cookie value]];
+            }
+            
+            [result appendFormat:@" -b \"%@\" ", cookiesString];
+        }
+    }
+    
+    [result appendString:[NSString stringWithFormat:@"\"%@\"", [[self URL] absoluteString]]];
+
+    return [NSString stringWithString:result];
+}
+
+@end
+
 @implementation AFNetworkActivityLogger
 
 + (instancetype)sharedLogger {
@@ -104,6 +147,9 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
     }
 
     switch (self.level) {
+        case AFLoggerLevelDebugCurl:
+            NSLog(@"\n--------\n%@\n--------", [request af_curlCommand]);
+            break;
         case AFLoggerLevelDebug:
             NSLog(@"%@ '%@': %@ %@", [request HTTPMethod], [[request URL] absoluteString], [request allHTTPHeaderFields], body);
             break;
@@ -145,6 +191,7 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
     if (error) {
         switch (self.level) {
             case AFLoggerLevelDebug:
+            case AFLoggerLevelDebugCurl:
             case AFLoggerLevelInfo:
             case AFLoggerLevelWarn:
             case AFLoggerLevelError:
@@ -154,6 +201,7 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
         }
     } else {
         switch (self.level) {
+            case AFLoggerLevelDebugCurl:
             case AFLoggerLevelDebug:
                 NSLog(@"%ld '%@' [%.04f s]: %@ %@", (long)responseStatusCode, [[response URL] absoluteString], elapsedTime, responseHeaderFields, responseString);
                 break;
