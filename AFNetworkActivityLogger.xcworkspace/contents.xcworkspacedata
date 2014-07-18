@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:AFNetworkActivityLogger"
+      name = "AFNetworkActivityLogger">
+      <FileRef
+         location = "group:AFNetworkActivityLogger.h">
+      </FileRef>
+      <FileRef
+         location = "group:AFNetworkActivityLogger.m">
+      </FileRef>
+   </Group>
+</Workspace>
