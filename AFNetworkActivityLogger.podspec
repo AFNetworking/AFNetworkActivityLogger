@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/AFNetworking/AFNetworkActivityLogger'
   s.authors  = { 'Mattt Thompson' => 'm@mattt.me' }
   s.source   = { :git => 'https://github.com/AFNetworking/AFNetworkActivityLogger.git', :tag => '2.0.2' }
-  s.source_files = 'AFNetworkActivityLogger.{h,m}'
+  s.source_files = 'AFNetworkActivityLogger'
   s.requires_arc = true
   s.ios.deployment_target = '6.0'
   s.osx.deployment_target = '10.8'
