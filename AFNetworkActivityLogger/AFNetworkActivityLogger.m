@@ -131,7 +131,7 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
     NSUInteger responseStatusCode = 0;
     NSDictionary *responseHeaderFields = nil;
     if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-        responseStatusCode = [(NSHTTPURLResponse *)response statusCode];
+        responseStatusCode = (NSUInteger)[(NSHTTPURLResponse *)response statusCode];
         responseHeaderFields = [(NSHTTPURLResponse *)response allHeaderFields];
     }
 
