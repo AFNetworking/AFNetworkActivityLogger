@@ -135,9 +135,11 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
         responseHeaderFields = [(NSHTTPURLResponse *)response allHeaderFields];
     }
 
-    NSString *responseString = nil;
+    id responseObject = nil;
     if ([[notification object] respondsToSelector:@selector(responseString)]) {
-        responseString = [[notification object] responseString];
+        responseObject = [[notification object] responseString];
+    } else if (notification.userInfo) {
+        responseObject = notification.userInfo[AFNetworkingTaskDidCompleteSerializedResponseKey];
     }
 
     NSTimeInterval elapsedTime = [[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(notification.object, AFNetworkRequestStartDate)];
@@ -155,7 +157,7 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
     } else {
         switch (self.level) {
             case AFLoggerLevelDebug:
-                NSLog(@"%ld '%@' [%.04f s]: %@ %@", (long)responseStatusCode, [[response URL] absoluteString], elapsedTime, responseHeaderFields, responseString);
+                NSLog(@"%ld '%@' [%.04f s]: %@ %@", (long)responseStatusCode, [[response URL] absoluteString], elapsedTime, responseHeaderFields, responseObject);
                 break;
             case AFLoggerLevelInfo:
                 NSLog(@"%ld '%@' [%.04f s]", (long)responseStatusCode, [[response URL] absoluteString], elapsedTime);
