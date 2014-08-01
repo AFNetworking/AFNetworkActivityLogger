@@ -48,7 +48,7 @@ typedef NS_ENUM(NSUInteger, AFHTTPRequestLoggerLevel) {
 @property (nonatomic, assign) AFHTTPRequestLoggerLevel level;
 
 /**
- Only log requests conforming to the specified predicate, if specified. `nil` by default.
+ Omit requests which match the specified predicate, if provided. `nil` by default.
  
  @discussion Each notification has an associated `NSURLRequest`. To filter out request and response logging, such as all network activity made to a particular domain, this predicate can be set to match against the appropriate URL string pattern.
  */
