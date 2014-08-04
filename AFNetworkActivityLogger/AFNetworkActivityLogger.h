@@ -32,6 +32,16 @@ typedef NS_ENUM(NSUInteger, AFHTTPRequestLoggerLevel) {
 };
 
 /**
+ * `AFNetworkActivityLoggerLogDelegate` protocol defines a way for developers to route log messages
+ *   in any way they'd like.
+ */
+@protocol AFNetworkActivityLoggerLogDelegate <NSObject>
+
+- (void)afNetworkLog:(NSString *)logMessage level:(AFHTTPRequestLoggerLevel)logLevel error:(NSError *)logError;
+
+@end
+
+/**
  `AFNetworkActivityLogger` logs requests and responses made by AFNetworking, with an adjustable level of detail.
  
  Applications should enable the shared instance of `AFNetworkActivityLogger` in `AppDelegate -application:didFinishLaunchingWithOptions:`:
@@ -53,6 +63,15 @@ typedef NS_ENUM(NSUInteger, AFHTTPRequestLoggerLevel) {
  @discussion Each notification has an associated `NSURLRequest`. To filter out request and response logging, such as all network activity made to a particular domain, this predicate can be set to match against the appropriate URL string pattern.
  */
 @property (nonatomic, strong) NSPredicate *filterPredicate;
+
+
+/**
+ * The delegate that handles actual logging of the log message.
+ * 
+ * The default AFNetworkActivityLoggerLogDelegate is the instance of `AFHTTPRequestLoggerLevel`,
+ *   and uses NSLog to log all messages.
+ */
+@property (nonatomic, strong) id<AFNetworkActivityLoggerLogDelegate> logDelegate;
 
 /**
  Returns the shared logger instance.
