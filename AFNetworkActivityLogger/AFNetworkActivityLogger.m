@@ -37,6 +37,24 @@ static NSURLRequest * AFNetworkRequestFromNotification(NSNotification *notificat
     return request;
 }
 
+static NSError * AFNetworkErrorFromNotification(NSNotification *notification) {
+    NSError *error = nil;
+    if ([[notification object] isKindOfClass:[AFURLConnectionOperation class]]) {
+        error = [(AFURLConnectionOperation *)[notification object] error];
+    }
+    
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
+    if ([[notification object] isKindOfClass:[NSURLSessionTask class]]) {
+        error = [(NSURLSessionTask *)[notification object] error];
+        if (!error) {
+            error = notification.userInfo[AFNetworkingTaskDidCompleteErrorKey];
+        }
+    }
+#endif
+    
+    return error;
+}
+
 @implementation AFNetworkActivityLogger
 
 + (instancetype)sharedLogger {
@@ -118,7 +136,7 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
 - (void)networkRequestDidFinish:(NSNotification *)notification {
     NSURLRequest *request = AFNetworkRequestFromNotification(notification);
     NSURLResponse *response = [notification.object response];
-    NSError *error = [notification.object error];
+    NSError *error = AFNetworkErrorFromNotification(notification);
 
     if (!request && !response) {
         return;
