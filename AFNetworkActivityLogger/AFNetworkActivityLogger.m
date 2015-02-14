@@ -28,10 +28,10 @@
 
 static NSURLRequest * AFNetworkRequestFromNotification(NSNotification *notification) {
     NSURLRequest *request = nil;
-    if ([[notification object] isKindOfClass:[AFURLConnectionOperation class]]) {
-        request = [(AFURLConnectionOperation *)[notification object] request];
-    } else if ([[notification object] respondsToSelector:@selector(originalRequest)]) {
+    if ([[notification object] respondsToSelector:@selector(originalRequest)]) {
         request = [[notification object] originalRequest];
+    } else if ([[notification object] respondsToSelector:@selector(request)]) {
+        request = [[notification object] request];
     }
 
     return request;
