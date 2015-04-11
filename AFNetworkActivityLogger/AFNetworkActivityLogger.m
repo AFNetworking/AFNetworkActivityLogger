@@ -157,7 +157,10 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
     if ([[notification object] respondsToSelector:@selector(responseString)]) {
         responseObject = [[notification object] responseString];
     } else if (notification.userInfo) {
-        responseObject = notification.userInfo[AFNetworkingTaskDidCompleteSerializedResponseKey];
+        responseObject = [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:notification.userInfo[AFNetworkingTaskDidCompleteSerializedResponseKey]
+                                                                                        options:NSJSONWritingPrettyPrinted
+                                                                                          error:nil]
+                                               encoding:NSUTF8StringEncoding];
     }
 
     NSTimeInterval elapsedTime = [[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(notification.object, AFNetworkRequestStartDate)];
