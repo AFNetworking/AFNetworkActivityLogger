@@ -22,6 +22,11 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ `AFNetworkActivityLogger`
+ */
+typedef void (^AFNetworkActivityLoggingBlock)(NSString *message);
+
 typedef NS_ENUM(NSUInteger, AFHTTPRequestLoggerLevel) {
   AFLoggerLevelOff,
   AFLoggerLevelDebug,
@@ -41,6 +46,11 @@ typedef NS_ENUM(NSUInteger, AFHTTPRequestLoggerLevel) {
  `AFNetworkActivityLogger` listens for `AFNetworkingOperationDidStartNotification` and `AFNetworkingOperationDidFinishNotification` notifications, which are posted by AFNetworking as request operations are started and finish. For further customization of logging output, users are encouraged to implement desired functionality by listening for these notifications.
  */
 @interface AFNetworkActivityLogger : NSObject
+
+/**
+ A block to invoke instead of NSLog. Useful for sending logs to a remote server or storing them in a local file.
+ */
+@property (nonatomic, copy) AFNetworkActivityLoggingBlock loggingBlock;
 
 /**
  The level of logging detail. See "Logging Levels" for possible values. `AFLoggerLevelInfo` by default.

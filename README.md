@@ -25,6 +25,14 @@ If the default logging level is too verbose—say, if you only want to know when
 [[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelError];
 ```
 
+You can also specify a block to direct the logging output somewhere other than the default `NSLog`.
+
+``` objective-c
+[[AFNetworkActivityLogger sharedLogger] setLoggingBlock:^(NSString *message) {
+	// Do whatever with the message
+}];
+```
+
 ## Contact
 
 Mattt Thompson
