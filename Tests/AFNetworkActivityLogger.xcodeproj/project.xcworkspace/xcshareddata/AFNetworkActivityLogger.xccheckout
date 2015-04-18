@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8DCC8534-C0E4-4DE8-AF26-7027DE987110</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AFNetworkActivityLogger</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E3CA97A4D0A57AEDFA77BE925E24F5813E165E2C</key>
+		<string>https://github.com/ashfurrow/AFNetworkActivityLogger.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Tests/AFNetworkActivityLogger.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E3CA97A4D0A57AEDFA77BE925E24F5813E165E2C</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ashfurrow/AFNetworkActivityLogger.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E3CA97A4D0A57AEDFA77BE925E24F5813E165E2C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E3CA97A4D0A57AEDFA77BE925E24F5813E165E2C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AFNetworkActivityLogger</string>
+		</dict>
+	</array>
+</dict>
+</plist>
