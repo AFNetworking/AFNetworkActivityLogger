@@ -22,10 +22,49 @@
 
 #import <XCTest/XCTest.h>
 #import <Specta/Specta.h>
+#import <stdarg.h>
 #import <AFNetworkActivityLogger/AFNetworkActivityLogger.h>
 
 SpecBegin(AFNetworkActivityLogger)
 
+__block AFNetworkActivityLogger *subject;
 
+beforeEach(^{
+    subject = [AFNetworkActivityLogger sharedLogger];
+});
+
+pending(@"has a default level of info");
+pending(@"only logs when started");
+pending(@"stops logging after being stopped");
+
+describe(@"when logging set to off level", ^{
+    pending(@"doesn't log errors");
+});
+
+describe(@"on debug", ^{
+    pending(@"logs requests verbosely");
+    pending(@"logs responses verbosely");
+});
+
+describe(@"on info", ^{
+    pending(@"logs requests succinctly");
+    pending(@"logs responses succinctly");
+});
+
+describe(@"on non-info, non-debug log levels", ^{
+    pending(@"doesn't log at all");
+});
+
+describe(@"missing requests", ^{
+    pending(@"doesn't log requests");
+    pending(@"still logs responses");
+});
+
+describe(@"missing requests and responses", ^{
+    pending(@"doesn't log responses");
+});
+
+pending(@"filters out based on URL predicates");
+pending(@"specifies elapsed time");
 
 SpecEnd
