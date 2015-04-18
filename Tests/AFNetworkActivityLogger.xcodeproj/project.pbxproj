@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		3FFA6FE16DE31A0075B76A9B /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B24EFFCCB6050276929EC94 /* libPods-Tests.a */; };
 		5E14C1381AE2AFED008E6F55 /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E14C1371AE2AFED008E6F55 /* Tests.m */; };
+		5E14C13E1AE2CEAD008E6F55 /* TestHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E14C13C1AE2CEAD008E6F55 /* TestHelpers.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5E14C1321AE2AFED008E6F55 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E14C1361AE2AFED008E6F55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E14C1371AE2AFED008E6F55 /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
+		5E14C13C1AE2CEAD008E6F55 /* TestHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelpers.m; sourceTree = "<group>"; };
+		5E14C13D1AE2CEAD008E6F55 /* TestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelpers.h; sourceTree = "<group>"; };
 		9B24EFFCCB6050276929EC94 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2E35DD417193758B315286F /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B76F684A3A27E78372E9E2B4 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -54,6 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				5E14C1371AE2AFED008E6F55 /* Tests.m */,
+				5E14C13D1AE2CEAD008E6F55 /* TestHelpers.h */,
+				5E14C13C1AE2CEAD008E6F55 /* TestHelpers.m */,
 				5E14C1351AE2AFED008E6F55 /* Supporting Files */,
 			);
 			path = Tests;
@@ -185,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E14C1381AE2AFED008E6F55 /* Tests.m in Sources */,
+				5E14C13E1AE2CEAD008E6F55 /* TestHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
