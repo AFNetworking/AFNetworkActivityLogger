@@ -1,0 +1,5 @@
+language: objective-c
+xcode_workspace: Tests/AFNetworkActivityLogger.xcworkspace
+xcode_scheme: Tests
+podfile: Tests/Podfile
+before_install: gem update cocoapods

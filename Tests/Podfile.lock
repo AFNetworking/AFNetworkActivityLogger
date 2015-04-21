@@ -13,7 +13,7 @@ PODS:
   - AFNetworking/Reachability (2.5.2)
   - AFNetworking/Security (2.5.2)
   - AFNetworking/Serialization (2.5.2)
-  - Expecta (0.4.1)
+  - Expecta (0.4.2)
   - Specta (0.5.0)
 
 DEPENDENCIES:
@@ -28,7 +28,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworkActivityLogger: 121486778117d53b3ab1c61d264b88081d0c3eee
   AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
-  Expecta: a2f175f4f5f99d062d480787945ea11d8884077e
+  Expecta: 78b4e8b0c8291fa4524d7f74016b6065c2e391ec
   Specta: eb90708ed77569bbda089f8ead10bb99b8e9489e
 
 COCOAPODS: 0.36.3
