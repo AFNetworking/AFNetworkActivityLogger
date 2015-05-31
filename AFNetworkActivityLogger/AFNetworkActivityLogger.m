@@ -161,6 +161,10 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
     }
 
     NSTimeInterval elapsedTime = [[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(notification.object, AFNetworkRequestStartDate)];
+    
+    if (self.prettyJsonDescription) {
+        responseObject = [self jsonDescriptionForResponseObject:responseObject];
+    }
 
     if (error) {
         switch (self.level) {
@@ -185,5 +189,23 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
         }
     }
 }
+
+- (NSString *)jsonDescriptionForResponseObject:(id)responseObject {
+    NSError * err;
+    NSData *jsonData;
+    
+    if ([responseObject isKindOfClass:[NSDictionary class]]) {
+        jsonData = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:&err];
+        
+        if (err) {
+            return responseObject;
+        } else {
+            return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        }
+    } else {
+        return responseObject;
+    }
+}
+
 
 @end
