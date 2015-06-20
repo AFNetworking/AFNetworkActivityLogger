@@ -25,6 +25,15 @@ If the default logging level is too verbose—say, if you only want to know when
 [[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelError];
 ```
 
+To use a different logging method with the derived log string you can initialize a callback block:
+
+``` objective-c
+[AFNetworkActivityLogger sharedLogger].logCallback = ^(NSString *logString) {
+  CLS_LOG(@"%@", logString);
+};
+```
+
+
 ## Contact
 
 Mattt Thompson
