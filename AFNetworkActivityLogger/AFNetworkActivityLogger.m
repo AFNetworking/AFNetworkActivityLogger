@@ -21,8 +21,11 @@
 // THE SOFTWARE.
 
 #import "AFNetworkActivityLogger.h"
-#import "AFURLConnectionOperation.h"
 #import "AFURLSessionManager.h"
+
+#if !TARGET_OS_WATCH
+#import "AFURLConnectionOperation.h"
+#endif
 
 #import <objc/runtime.h>
 
@@ -39,9 +42,11 @@ static NSURLRequest * AFNetworkRequestFromNotification(NSNotification *notificat
 
 static NSError * AFNetworkErrorFromNotification(NSNotification *notification) {
     NSError *error = nil;
+#if !TARGET_OS_WATCH
     if ([[notification object] isKindOfClass:[AFURLConnectionOperation class]]) {
         error = [(AFURLConnectionOperation *)[notification object] error];
     }
+#endif
     
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
     if ([[notification object] isKindOfClass:[NSURLSessionTask class]]) {
@@ -86,8 +91,10 @@ static NSError * AFNetworkErrorFromNotification(NSNotification *notification) {
 - (void)startLogging {
     [self stopLogging];
 
+#if !TARGET_OS_WATCH
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkRequestDidStart:) name:AFNetworkingOperationDidStartNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkRequestDidFinish:) name:AFNetworkingOperationDidFinishNotification object:nil];
+#endif
 
 #if (defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000) || (defined(__MAC_OS_X_VERSION_MAX_ALLOWED) && __MAC_OS_X_VERSION_MAX_ALLOWED >= 1090)
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkRequestDidStart:) name:AFNetworkingTaskDidResumeNotification object:nil];
@@ -154,11 +161,17 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
     }
 
     id responseObject = nil;
+#if TARGET_OS_WATCH
+    if (notification.userInfo) {
+        responseObject = notification.userInfo[AFNetworkingTaskDidCompleteSerializedResponseKey];
+    }
+#else
     if ([[notification object] respondsToSelector:@selector(responseString)]) {
         responseObject = [[notification object] responseString];
     } else if (notification.userInfo) {
         responseObject = notification.userInfo[AFNetworkingTaskDidCompleteSerializedResponseKey];
     }
+#endif
 
     NSTimeInterval elapsedTime = [[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(notification.object, AFNetworkRequestStartDate)];
 
