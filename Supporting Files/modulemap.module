@@ -1,0 +1,5 @@
+framework module AFNetworkActivityLogger {
+    umbrella header "AFNetworkActivityLogger.h"
+    export *
+    module * { export * }
+}

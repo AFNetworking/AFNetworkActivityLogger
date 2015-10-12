@@ -1,0 +1,2 @@
+[submodule "Carthage/Checkouts/AFNetworking"]
+	url = https://github.com/AFNetworking/AFNetworking.git

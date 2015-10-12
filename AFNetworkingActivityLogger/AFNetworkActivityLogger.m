@@ -21,37 +21,25 @@
 // THE SOFTWARE.
 
 #import "AFNetworkActivityLogger.h"
-#import "AFURLConnectionOperation.h"
-#import "AFURLSessionManager.h"
-
+#import <AFNetworking/AFURLSessionManager.h>
 #import <objc/runtime.h>
 
 static NSURLRequest * AFNetworkRequestFromNotification(NSNotification *notification) {
     NSURLRequest *request = nil;
     if ([[notification object] respondsToSelector:@selector(originalRequest)]) {
         request = [[notification object] originalRequest];
-    } else if ([[notification object] respondsToSelector:@selector(request)]) {
-        request = [[notification object] request];
     }
-
     return request;
 }
 
 static NSError * AFNetworkErrorFromNotification(NSNotification *notification) {
     NSError *error = nil;
-    if ([[notification object] isKindOfClass:[AFURLConnectionOperation class]]) {
-        error = [(AFURLConnectionOperation *)[notification object] error];
-    }
-    
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
     if ([[notification object] isKindOfClass:[NSURLSessionTask class]]) {
         error = [(NSURLSessionTask *)[notification object] error];
         if (!error) {
             error = notification.userInfo[AFNetworkingTaskDidCompleteErrorKey];
         }
     }
-#endif
-    
     return error;
 }
 
@@ -85,14 +73,8 @@ static NSError * AFNetworkErrorFromNotification(NSNotification *notification) {
 
 - (void)startLogging {
     [self stopLogging];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkRequestDidStart:) name:AFNetworkingOperationDidStartNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkRequestDidFinish:) name:AFNetworkingOperationDidFinishNotification object:nil];
-
-#if (defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000) || (defined(__MAC_OS_X_VERSION_MAX_ALLOWED) && __MAC_OS_X_VERSION_MAX_ALLOWED >= 1090)
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkRequestDidStart:) name:AFNetworkingTaskDidResumeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkRequestDidFinish:) name:AFNetworkingTaskDidCompleteNotification object:nil];
-#endif
 }
 
 - (void)stopLogging {
@@ -154,9 +136,7 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
     }
 
     id responseObject = nil;
-    if ([[notification object] respondsToSelector:@selector(responseString)]) {
-        responseObject = [[notification object] responseString];
-    } else if (notification.userInfo) {
+    if (notification.userInfo) {
         responseObject = notification.userInfo[AFNetworkingTaskDidCompleteSerializedResponseKey];
     }
 
