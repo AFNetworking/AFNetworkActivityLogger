@@ -103,7 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				29D77AD41BCC4DA8005B1EF5 /* Dependency */,
-				29D96E701BCC357B00F571A5 /* AFNetworkingActivityLogger */,
+				29D96E701BCC357B00F571A5 /* AFNetworkActivityLogger */,
 				29D96E8F1BCC3F1D00F571A5 /* Supporting Files */,
 				29D96E661BCC34CD00F571A5 /* Products */,
 			);
@@ -120,13 +120,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29D96E701BCC357B00F571A5 /* AFNetworkingActivityLogger */ = {
+		29D96E701BCC357B00F571A5 /* AFNetworkActivityLogger */ = {
 			isa = PBXGroup;
 			children = (
 				29D96E711BCC357B00F571A5 /* AFNetworkActivityLogger.h */,
 				29D96E721BCC357B00F571A5 /* AFNetworkActivityLogger.m */,
 			);
-			path = AFNetworkingActivityLogger;
+			path = AFNetworkActivityLogger;
 			sourceTree = "<group>";
 		};
 		29D96E8F1BCC3F1D00F571A5 /* Supporting Files */ = {
@@ -677,7 +677,7 @@
 				);
 				INFOPLIST_FILE = "$(inherited)";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alamofire.AFNetworkActivityLogger;
 				PRODUCT_NAME = "$(inherited)";
@@ -698,7 +698,7 @@
 				);
 				INFOPLIST_FILE = "$(inherited)";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alamofire.AFNetworkActivityLogger;
 				PRODUCT_NAME = "$(inherited)";
@@ -716,6 +716,7 @@
 				29D77AA91BCC49C9005B1EF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		29D77ABA1BCC4BDD005B1EF5 /* Build configuration list for PBXNativeTarget "AFNetworkActivityLogger watchOS" */ = {
 			isa = XCConfigurationList;
@@ -724,6 +725,7 @@
 				29D77ABC1BCC4BDD005B1EF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		29D77ACE1BCC4D4D005B1EF5 /* Build configuration list for PBXNativeTarget "AFNetworkActivityLogger tvOS" */ = {
 			isa = XCConfigurationList;
@@ -732,6 +734,7 @@
 				29D77AD01BCC4D4D005B1EF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		29D96E5F1BCC34CD00F571A5 /* Build configuration list for PBXProject "AFNetworkActivityLogger" */ = {
 			isa = XCConfigurationList;
