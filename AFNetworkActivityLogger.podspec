@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'AFNetworkActivityLogger'
   s.version  = '3.0.0'
   s.license  = 'MIT'
-  s.summary  = 'AFNetworking 2.0 Extension for Network Request Logging'
+  s.summary  = 'AFNetworking 3.0 Extension for Network Request Logging'
   s.homepage = 'https://github.com/AFNetworking/AFNetworkActivityLogger'
   s.authors  = { 'Mattt Thompson' => 'm@mattt.me' }
   s.source   = { :git => 'https://github.com/AFNetworking/AFNetworkActivityLogger.git', :tag => s.version }

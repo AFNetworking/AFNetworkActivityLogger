@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "29F28C281C1F2628006BD785"
+               BuildableName = "AFNetworkActivityLoggerTests tvOS Tests.xctest"
+               BlueprintName = "AFNetworkActivityLoggerTests tvOS Tests"
+               ReferencedContainer = "container:AFNetworkActivityLogger.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "29D77AC81BCC4D4D005B1EF5"
+            BuildableName = "AFNetworkActivityLogger.framework"
+            BlueprintName = "AFNetworkActivityLogger tvOS"
+            ReferencedContainer = "container:AFNetworkActivityLogger.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
