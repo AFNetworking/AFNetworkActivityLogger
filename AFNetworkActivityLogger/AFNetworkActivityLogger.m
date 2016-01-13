@@ -121,9 +121,14 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
         body = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
     }
 
+    NSString *stream = nil;
+    if ([request HTTPBodyStream]) {
+        stream = @"<stream>";
+    }
+
     switch (self.level) {
         case AFLoggerLevelDebug:
-            NSLog(@"%@ '%@': %@ %@", [request HTTPMethod], [[request URL] absoluteString], [request allHTTPHeaderFields], body);
+            NSLog(@"%@ '%@': %@ %@ %@", [request HTTPMethod], [[request URL] absoluteString], [request allHTTPHeaderFields], body, stream);
             break;
         case AFLoggerLevelInfo:
             NSLog(@"%@ '%@'", [request HTTPMethod], [[request URL] absoluteString]);
