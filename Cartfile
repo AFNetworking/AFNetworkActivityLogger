@@ -1,1 +1,1 @@
-github "AFNetworking/AFNetworking" "3_0_0_branch"
+github "AFNetworking/AFNetworking" ~> 3.0
