@@ -25,12 +25,6 @@ GET http://example.com/foo/bar.json
 200 http://example.com/foo/bar.json [0.1860 s]
 ```
 
-If the default logging level is too verbose—say, if you only want to know when requests fail—then changing it is as simple as:
-
-``` objective-c
-[[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelError];
-```
-
 ## Logging Levels
 By default, the shared logger is configured with an `AFNetworkActivityConsoleLogger` with a debug level set to `AFLoggerLevelInfo`. To change the level, simply access the logger through the `loggers` property, and adjust the level. The following levels are provided:
 
