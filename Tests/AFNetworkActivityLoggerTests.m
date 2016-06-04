@@ -86,6 +86,21 @@
     XCTAssertTrue(self.logger.loggers.count == count - 1);
 }
 
+- (void)testLogLevelCanBeSetOnAllLoggersSimultaneously {
+    AFNetworkActivityConsoleLogger *firstLogger = [AFNetworkActivityConsoleLogger new];
+    firstLogger.level = AFLoggerLevelInfo;
+    AFNetworkActivityConsoleLogger *secondLogger = [AFNetworkActivityConsoleLogger new];
+    secondLogger.level = AFLoggerLevelError;
+    
+    [self.logger addLogger:firstLogger];
+    [self.logger addLogger:secondLogger];
+    
+    [self.logger setLogLevel:AFLoggerLevelDebug];
+    
+    XCTAssertTrue(firstLogger.level == AFLoggerLevelDebug);
+    XCTAssertTrue(secondLogger.level == AFLoggerLevelDebug);
+}
+
 - (void)testThatStartCallbackIsReceived {
     NSURL *baseURL = [NSURL URLWithString:@"https://httpbin.org"];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
@@ -102,6 +117,7 @@
     [manager
      GET:@"ip"
      parameters:nil
+     progress:nil
      success:nil
      failure:nil];
     [self waitForExpectationsWithTimeout:10.0 handler:nil];
@@ -127,6 +143,7 @@
     [manager
      GET:@"ip"
      parameters:nil
+     progress:nil
      success:nil
      failure:nil];
     [self waitForExpectationsWithTimeout:10.0 handler:nil];
@@ -152,6 +169,7 @@
     [manager
      GET:@"status/404"
      parameters:nil
+     progress:nil
      success:nil
      failure:nil];
     [self waitForExpectationsWithTimeout:10.0 handler:nil];
@@ -180,6 +198,7 @@
     [manager
      GET:@"ip"
      parameters:nil
+     progress:nil
      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
          [expectation fulfill];
      }
@@ -210,6 +229,7 @@
     [manager
      GET:@"ip"
      parameters:nil
+     progress:nil
      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
          [expectation fulfill];
      }
@@ -236,6 +256,7 @@
     [manager
      GET:@"ip"
      parameters:nil
+     progress:nil
      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
          [expectation fulfill];
      }
