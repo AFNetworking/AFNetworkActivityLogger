@@ -84,6 +84,12 @@ static NSError * AFNetworkErrorFromNotification(NSNotification *notification) {
     [self.mutableLoggers removeObject:logger];
 }
 
+- (void)setLogLevel:(AFHTTPRequestLoggerLevel)level {
+    for (id<AFNetworkActivityLoggerProtocol>logger in self.loggers) {
+        logger.level = level;
+    }
+}
+
 - (void)startLogging {
     [self stopLogging];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkRequestDidStart:) name:AFNetworkingTaskDidResumeNotification object:nil];

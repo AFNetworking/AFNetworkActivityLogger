@@ -54,6 +54,10 @@
  */
 - (void)stopLogging;
 
+/**
+ Set the `AFHTTPRequestLoggerLevel` of all managed loggers.
+ */
+- (void)setLogLevel:(AFHTTPRequestLoggerLevel)level;
 
 /**
  Adds the given logger to be managed to the `loggers` set.
