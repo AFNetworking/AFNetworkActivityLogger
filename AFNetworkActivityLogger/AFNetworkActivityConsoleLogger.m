@@ -74,25 +74,25 @@
                 break;
         }
     } else {
-        id responseBody = responseObject;
-        
-        if(responseHeaderFields != nil && [responseObject isKindOfClass:[NSData class]]) {
-            id contentTypeObj = [responseHeaderFields objectForKey:@"Content-Type"];
-            if([contentTypeObj isKindOfClass:[NSString class]]) {
-                NSString *contentType = contentTypeObj;
-                if([contentType containsString:@"application/json"]
-                   || [contentType containsString:@"application/xml"]
-                   || [contentType containsString:@"application/x-www-form-urlencoded"]
-                   || [contentType containsString:@"text/html"]) {
-                    responseBody = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-                }
-            }
-        }
-        
         switch (self.level) {
-            case AFLoggerLevelDebug:
+            case AFLoggerLevelDebug: {
+                id responseBody = responseObject;
+                
+                if(responseHeaderFields != nil && [responseObject isKindOfClass:[NSData class]]) {
+                    id contentTypeObj = [responseHeaderFields objectForKey:@"Content-Type"];
+                    if([contentTypeObj isKindOfClass:[NSString class]]) {
+                        NSString *contentType = contentTypeObj;
+                        if([contentType containsString:@"application/json"]
+                           || [contentType containsString:@"application/xml"]
+                           || [contentType containsString:@"application/x-www-form-urlencoded"]
+                           || [contentType containsString:@"text/html"]) {
+                            responseBody = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                        }
+                    }
+                }
                 NSLog(@"%ld '%@' [%.04f s]: %@ %@", (long)responseStatusCode, [[task.response URL] absoluteString], elapsedTime, responseHeaderFields, responseBody);
-                break;
+            }
+            break;
             case AFLoggerLevelInfo:
                 NSLog(@"%ld '%@' [%.04f s]", (long)responseStatusCode, [[task.response URL] absoluteString], elapsedTime);
                 break;
