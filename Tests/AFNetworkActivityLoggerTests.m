@@ -280,8 +280,8 @@
     [self.logger startLogging];
     
     [manager
-     GET:@"ip"
-     parameters:nil
+     POST:@"post"
+     parameters:@"x=y"
      progress:nil
      success:nil
      failure:nil];
