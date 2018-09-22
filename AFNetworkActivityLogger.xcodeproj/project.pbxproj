@@ -345,7 +345,6 @@
 				29D77A9E1BCC49C9005B1EF5 /* Frameworks */,
 				29D77A9F1BCC49C9005B1EF5 /* Headers */,
 				29D77AA01BCC49C9005B1EF5 /* Resources */,
-				29D77AAD1BCC4A12005B1EF5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -365,7 +364,6 @@
 				29D77AB21BCC4BDD005B1EF5 /* Headers */,
 				29D77AB31BCC4BDD005B1EF5 /* Resources */,
 				29D77AC01BCC4C7F005B1EF5 /* CopyFiles */,
-				29D77AC31BCC4C96005B1EF5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -384,7 +382,6 @@
 				29D77AC51BCC4D4D005B1EF5 /* Frameworks */,
 				29D77AC61BCC4D4D005B1EF5 /* Headers */,
 				29D77AC71BCC4D4D005B1EF5 /* Resources */,
-				29D77AD71BCC4DC5005B1EF5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -403,7 +400,6 @@
 				29D96E611BCC34CD00F571A5 /* Frameworks */,
 				29D96E621BCC34CD00F571A5 /* Headers */,
 				29D96E631BCC34CD00F571A5 /* Resources */,
-				29D96E771BCC36E700F571A5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -558,65 +554,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		29D77AAD1BCC4A12005B1EF5 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/Mac/AFNetworking.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		29D77AC31BCC4C96005B1EF5 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/watchOS/AFNetworking.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		29D77AD71BCC4DC5005B1EF5 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/tvOS/AFNetworking.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		29D96E771BCC36E700F571A5 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/AFNetworking.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		297DF57D1C1F1CA2001FA807 /* Sources */ = {
