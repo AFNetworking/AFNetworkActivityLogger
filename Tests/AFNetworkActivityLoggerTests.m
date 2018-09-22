@@ -214,7 +214,7 @@
 
 
     [testLogger setFinishBlock:^(NSURLSessionTask *task, id responseObject, NSTimeInterval elapsedTime, NSError *error) {
-        XCTFail(@"Start block should not be called");
+        XCTFail(@"Finish block should not be called");
     }];
 
     NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSURLRequest *  _Nonnull request, NSDictionary<NSString *,id> * _Nullable bindings) {
