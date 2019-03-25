@@ -29,77 +29,112 @@
     if (!self) {
         return nil;
     }
-
+    
     self.level = AFLoggerLevelInfo;
-
+    
     return self;
 }
 
 
 - (void)URLSessionTaskDidStart:(NSURLSessionTask *)task {
     NSURLRequest *request = task.originalRequest;
-
-    NSString *body = nil;
-    if ([request HTTPBody]) {
-        body = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
+    
+    NSString *requestMethod = [request HTTPMethod];
+    
+    NSURL *url = [request URL];
+    
+    NSString *urlPath = [url path];
+    NSString *query = [url query];
+    if (query) {
+        urlPath = [NSString stringWithFormat:@"%@?%@", urlPath, query];
     }
-
-    switch (self.level) {
-        case AFLoggerLevelDebug:
-            NSLog(@"%@ '%@': %@ %@", [request HTTPMethod], [[request URL] absoluteString], [request allHTTPHeaderFields], body);
-            break;
-        case AFLoggerLevelInfo:
-            NSLog(@"%@ '%@'", [request HTTPMethod], [[request URL] absoluteString]);
-            break;
-        default:
-            break;
+    
+    NSString *portStr;
+    NSNumber *port = [url port];
+    if (port) {
+        portStr = [NSString stringWithFormat:@"%@", port];
+    } else {
+        portStr = @"80";
     }
+    NSString *host = [NSString stringWithFormat:@"%@://%@:%@", [url scheme], [url host], portStr];
+    
+    NSString *format = @"\n--------------------------------------------------\n%@ %@ HTTP/1.1\nHost: %@\n";
+    NSString *str = [NSString stringWithFormat:format, requestMethod, urlPath, host];
+    
+    NSDictionary *headers = [request allHTTPHeaderFields];
+    NSArray *keys = headers.allKeys;
+    for (int i = 0; i < keys.count; i++) {
+        NSString *key = keys[i];
+        NSString *value = [headers valueForKey:key];
+        str = [NSString stringWithFormat:@"%@%@: %@\n", str, key, value];
+    }
+    
+    NSString *bodyStr;
+    NSData *requestBody = [request HTTPBody];
+    if (requestBody) {
+        bodyStr = [[NSString alloc] initWithData:requestBody encoding:NSUTF8StringEncoding];
+    } else {
+        bodyStr = @"";
+    }
+    
+    str = [NSString stringWithFormat:@"%@\n%@\n--------------------------------------------------\n", str, bodyStr];
+    
+    NSLog(@"%@", str);
 }
 
 - (void)URLSessionTaskDidFinish:(NSURLSessionTask *)task withResponseObject:(id)responseObject inElapsedTime:(NSTimeInterval )elapsedTime withError:(NSError *)error {
-    NSUInteger responseStatusCode = 0;
-    NSDictionary *responseHeaderFields = nil;
+    
+    NSString *str = @"\n----------------------------------------------------------------\n";
+    
+    NSString *url = [[task.response URL] absoluteString];
+    
+    str = [NSString stringWithFormat:@"%@%@--->\nHTTP/1.1 ", str, url];
+    
     if ([task.response isKindOfClass:[NSHTTPURLResponse class]]) {
-        responseStatusCode = (NSUInteger)[(NSHTTPURLResponse *)task.response statusCode];
-        responseHeaderFields = [(NSHTTPURLResponse *)task.response allHeaderFields];
-    }
-
-    if (error) {
-        switch (self.level) {
-            case AFLoggerLevelDebug:
-            case AFLoggerLevelInfo:
-            case AFLoggerLevelError:
-                NSLog(@"[Error] %@ '%@' (%ld) [%.04f s]: %@", [task.originalRequest HTTPMethod], [[task.response URL] absoluteString], (long)responseStatusCode, elapsedTime, error);
-            default:
-                break;
+        NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+        
+        NSUInteger responseStatusCode = (NSUInteger)[response statusCode];
+        str = [NSString stringWithFormat:@"%@%lu\n", str, responseStatusCode];
+        
+        NSString *contentType = nil;
+        NSDictionary *responseHeaderFields = [response allHeaderFields];
+        if (responseHeaderFields) {
+            NSArray *fields = [responseHeaderFields allKeys];
+            for (int i = 0; i < fields.count; i++) {
+                NSString *key = fields[i];
+                NSString *value = [responseHeaderFields valueForKey:key];
+                str = [NSString stringWithFormat:@"%@%@: %@\n", str, key, value];
+                if ([@"Content-Type" isEqualToString:key]) {
+                    contentType = value;
+                }
+            }
         }
-    } else {
-        switch (self.level) {
-            case AFLoggerLevelDebug: {
-                id responseBody = responseObject;
-                
-                if(responseHeaderFields != nil && [responseObject isKindOfClass:[NSData class]]) {
-                    id contentTypeObj = [responseHeaderFields objectForKey:@"Content-Type"];
-                    if([contentTypeObj isKindOfClass:[NSString class]]) {
-                        NSString *contentType = contentTypeObj;
-                        if([contentType containsString:@"application/json"]
+        
+        id responseBody = responseObject;
+        
+        if(contentType && ([contentType containsString:@"application/json"]
                            || [contentType containsString:@"application/xml"]
                            || [contentType containsString:@"application/x-www-form-urlencoded"]
-                           || [contentType containsString:@"text/html"]) {
-                            responseBody = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-                        }
+                           || [contentType containsString:@"text/html"])) {
+            if ([responseObject isKindOfClass:[NSData class]]) {
+                responseBody = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+            } else if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                if ([NSJSONSerialization isValidJSONObject:responseObject]) {
+                    NSError *error;
+                    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:&error];
+                    if (error) {
+                        NSLog(@"Error:%@" , error);
+                    } else {
+                        responseBody =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
                     }
                 }
-                NSLog(@"%ld '%@' [%.04f s]: %@ %@", (long)responseStatusCode, [[task.response URL] absoluteString], elapsedTime, responseHeaderFields, responseBody);
             }
-            break;
-            case AFLoggerLevelInfo:
-                NSLog(@"%ld '%@' [%.04f s]", (long)responseStatusCode, [[task.response URL] absoluteString], elapsedTime);
-                break;
-            default:
-                break;
         }
+        
+        str = [NSString stringWithFormat:@"%@%@\n------------------------------------------------\n", str, responseBody];
     }
+    
+    NSLog(@"%@", str);
 }
 
 @end

@@ -280,8 +280,8 @@
     [self.logger startLogging];
     
     [manager
-     POST:@"post"
-     parameters:@"x=y"
+     GET:@"ip"
+     parameters:nil
      progress:nil
      success:nil
      failure:nil];
@@ -306,6 +306,55 @@
     [manager
      GET:@"image/jpeg"
      parameters:nil
+     progress:nil
+     success:nil
+     failure:nil];
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
+    [manager invalidateSessionCancelingTasks:YES];
+}
+
+- (void)testYY {
+    NSURL *baseURL = [NSURL URLWithString:@"https://httpbin.org"];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    AFNetworkActivityTestLogger *testLogger = [AFNetworkActivityTestLogger new];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Finish Block Should Be Called"];
+    [testLogger setFinishBlock:^(NSURLSessionTask *task, id responseObject, NSTimeInterval elpasedTime, NSError *error) {
+        [expectation fulfill];
+    }];
+    [self.logger addLogger:testLogger];
+    [self.logger setLogLevel:AFLoggerLevelDebug];
+    [self.logger startLogging];
+    
+    [manager
+     POST:@"post"
+     parameters:@"x=y"
+     progress:nil
+     success:nil
+     failure:nil];
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
+    [manager invalidateSessionCancelingTasks:YES];
+}
+
+- (void)testZZ {
+    NSURL *baseURL = [NSURL URLWithString:@"https://httpbin.org"];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    AFNetworkActivityTestLogger *testLogger = [AFNetworkActivityTestLogger new];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Finish Block Should Be Called"];
+    [testLogger setFinishBlock:^(NSURLSessionTask *task, id responseObject, NSTimeInterval elpasedTime, NSError *error) {
+        [expectation fulfill];
+    }];
+    
+    [self.logger addLogger:testLogger];
+    [self.logger setLogLevel:AFLoggerLevelError];
+    [self.logger startLogging];
+    
+    [manager
+     POST:@"status/404"
+     parameters:@"x=y"
      progress:nil
      success:nil
      failure:nil];
