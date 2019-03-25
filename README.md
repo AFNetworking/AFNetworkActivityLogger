@@ -5,14 +5,31 @@
 > `AFNetworkingLogger` listens `AFNetworkingTaskDidStartNotification` and `AFNetworkingTaskDidFinishNotification` notifications, which are posted by AFNetworking as session tasks are started and finish. For further customization of logging output, users are encouraged to implement desired functionality by creating new objects that conform to `AFNetworkingLoggerProtocol`.
 
 ## Usage
+1、Add the following code to `Podfile` in your project:
 
-Add the following code to `AppDelegate.m -application:didFinishLaunchingWithOptions:`:
+```
+pod 'AFNetworkingLogger', '~> 1.0.0'
+```
+
+2、Execute the following command to install this lib:
+
+```
+pod install
+```
+
+3、import `AFNetworkingLogger.h` header in `AppDelegate.m`:
+
+``` objective-c
+#import "AFNetworkingLogger.h"
+```
+
+4、Add the following code to `AppDelegate.m -application:didFinishLaunchingWithOptions:`:
 
 ``` objective-c
 [[AFNetworkingLogger sharedLogger] startLogging];
 ```
 
-Now all `NSURLSessionTask` objects created by an `AFURLSessionManager` will have their request and response logged to the console, a la:
+5、Now all `NSURLSessionTask` objects created by an `AFURLSessionManager` will have their request and response logged to the console, a la:
 
 ```
 --------------------------------------------------
