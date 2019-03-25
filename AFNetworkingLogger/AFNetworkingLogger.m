@@ -1,4 +1,4 @@
-// AFNetworkActivityLogger.h
+// AFNetworkingLogger.h
 //
 // Copyright (c) 2018 AFNetworking (http://afnetworking.com/)
 //
@@ -20,9 +20,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "AFNetworkActivityLogger.h"
+#import "AFNetworkingLogger.h"
 #import <AFNetworking/AFURLSessionManager.h>
-#import "AFNetworkActivityConsoleLogger.h"
+#import "AFNetworkingConsoleLogger.h"
 #import <objc/runtime.h>
 
 static NSError * AFNetworkErrorFromNotification(NSNotification *notification) {
@@ -36,15 +36,15 @@ static NSError * AFNetworkErrorFromNotification(NSNotification *notification) {
     return error;
 }
 
-@interface AFNetworkActivityLogger ()
+@interface AFNetworkingLogger ()
 @property (nonatomic, strong) NSMutableSet *mutableLoggers;
 
 @end
 
-@implementation AFNetworkActivityLogger
+@implementation AFNetworkingLogger
 
 + (instancetype)sharedLogger {
-    static AFNetworkActivityLogger *_sharedLogger = nil;
+    static AFNetworkingLogger *_sharedLogger = nil;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -62,7 +62,7 @@ static NSError * AFNetworkErrorFromNotification(NSNotification *notification) {
 
     self.mutableLoggers = [NSMutableSet set];
 
-    AFNetworkActivityConsoleLogger *consoleLogger = [AFNetworkActivityConsoleLogger new];
+    AFNetworkingConsoleLogger *consoleLogger = [AFNetworkingConsoleLogger new];
     [self addLogger:consoleLogger];
 
     return self;
@@ -76,16 +76,16 @@ static NSError * AFNetworkErrorFromNotification(NSNotification *notification) {
     [self stopLogging];
 }
 
-- (void)addLogger:(id<AFNetworkActivityLoggerProtocol>)logger {
+- (void)addLogger:(id<AFNetworkingLoggerProtocol>)logger {
     [self.mutableLoggers addObject:logger];
 }
 
-- (void)removeLogger:(id<AFNetworkActivityLoggerProtocol>)logger {
+- (void)removeLogger:(id<AFNetworkingLoggerProtocol>)logger {
     [self.mutableLoggers removeObject:logger];
 }
 
 - (void)setLogLevel:(AFHTTPRequestLoggerLevel)level {
-    for (id<AFNetworkActivityLoggerProtocol>logger in self.loggers) {
+    for (id<AFNetworkingLoggerProtocol>logger in self.loggers) {
         logger.level = level;
     }
 }
@@ -114,7 +114,7 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
 
     objc_setAssociatedObject(notification.object, AFNetworkRequestStartDate, [NSDate date], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
-    for (id <AFNetworkActivityLoggerProtocol> logger in self.loggers) {
+    for (id <AFNetworkingLoggerProtocol> logger in self.loggers) {
         if (request && logger.filterPredicate && [logger.filterPredicate evaluateWithObject:request]) {
             return;
         }
@@ -140,7 +140,7 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
 
     NSTimeInterval elapsedTime = [[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(notification.object, AFNetworkRequestStartDate)];
 
-    for (id <AFNetworkActivityLoggerProtocol> logger in self.loggers) {
+    for (id <AFNetworkingLoggerProtocol> logger in self.loggers) {
         if (request && logger.filterPredicate && [logger.filterPredicate evaluateWithObject:request]) {
             return;
         }

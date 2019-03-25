@@ -1,4 +1,4 @@
-// AFNetworkActivityConsoleLogger.h
+// AFNetworkingConsoleLogger.h
 //
 // Copyright (c) 2018 AFNetworking (http://afnetworking.com/)
 //
@@ -20,9 +20,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "AFNetworkActivityConsoleLogger.h"
+#import "AFNetworkingConsoleLogger.h"
 
-@implementation AFNetworkActivityConsoleLogger
+@implementation AFNetworkingConsoleLogger
 
 - (id)init {
     self = [super init];

@@ -1,4 +1,4 @@
-// AFNetworkActivityLoggerProtocol.h
+// AFNetworkingLoggerProtocol.h
 //
 // Copyright (c) 2018 AFNetworking (http://afnetworking.com/)
 //
@@ -30,7 +30,7 @@
 /**
  ## Logging Levels
 
- The following constants specify the available logging levels for `AFNetworkActivityLogger`:
+ The following constants specify the available logging levels for `AFNetworkingLogger`:
 
  enum {
  AFLoggerLevelOff,
@@ -63,15 +63,15 @@ typedef NS_ENUM(NSUInteger, AFHTTPRequestLoggerLevel) {
 
 
 /**
- `AFNetworkActivityLoggerProtocol` declares the interface to log requests and responses made by AFNetworking, with an adjustable level of detail.
+ `AFNetworkingLoggerProtocol` declares the interface to log requests and responses made by AFNetworking, with an adjustable level of detail.
 
- Objects that conform to `AFNetworkActivityLoggerProtocol` should be added to the shared instance of `AFNetworkActivityLogger`. Applications should then enable the shared instance of `AFNetworkActivityLogger` in `AppDelegate -application:didFinishLaunchingWithOptions:`:
+ Objects that conform to `AFNetworkingLoggerProtocol` should be added to the shared instance of `AFNetworkingLogger`. Applications should then enable the shared instance of `AFNetworkingLogger` in `AppDelegate -application:didFinishLaunchingWithOptions:`:
 
- [[AFNetworkActivityLogger sharedLogger] startLogging];
+ [[AFNetworkingLogger sharedLogger] startLogging];
  
  For further customization of logging output, users can create additional classes that conform to this protocol, and add them to the shared logger.
  */
-@protocol AFNetworkActivityLoggerProtocol <NSObject>
+@protocol AFNetworkingLoggerProtocol <NSObject>
 
 /**
  Omit requests which match the specified predicate, if provided. `nil` by default.

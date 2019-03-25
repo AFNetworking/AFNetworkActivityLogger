@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:AFNetworkActivityLogger.xcodeproj">
+      location = "self:AFNetworkingLogger.xcodeproj">
    </FileRef>
 </Workspace>

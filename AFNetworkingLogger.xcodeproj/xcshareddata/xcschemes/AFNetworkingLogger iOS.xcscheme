@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "29D96E641BCC34CD00F571A5"
-               BuildableName = "AFNetworkActivityLogger.framework"
-               BlueprintName = "AFNetworkActivityLogger iOS"
-               ReferencedContainer = "container:AFNetworkActivityLogger.xcodeproj">
+               BuildableName = "AFNetworkingLogger.framework"
+               BlueprintName = "AFNetworkingLogger iOS"
+               ReferencedContainer = "container:AFNetworkingLogger.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,9 +36,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "297DF5801C1F1CA2001FA807"
-               BuildableName = "AFNetworkActivityLoggerTests iOS Tests.xctest"
-               BlueprintName = "AFNetworkActivityLoggerTests iOS Tests"
-               ReferencedContainer = "container:AFNetworkActivityLogger.xcodeproj">
+               BuildableName = "AFNetworkingLoggerTests iOS Tests.xctest"
+               BlueprintName = "AFNetworkingLoggerTests iOS Tests"
+               ReferencedContainer = "container:AFNetworkingLogger.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "29D96E641BCC34CD00F571A5"
-            BuildableName = "AFNetworkActivityLogger.framework"
-            BlueprintName = "AFNetworkActivityLogger iOS"
-            ReferencedContainer = "container:AFNetworkActivityLogger.xcodeproj">
+            BuildableName = "AFNetworkingLogger.framework"
+            BlueprintName = "AFNetworkingLogger iOS"
+            ReferencedContainer = "container:AFNetworkingLogger.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -68,9 +68,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "29D96E641BCC34CD00F571A5"
-            BuildableName = "AFNetworkActivityLogger.framework"
-            BlueprintName = "AFNetworkActivityLogger iOS"
-            ReferencedContainer = "container:AFNetworkActivityLogger.xcodeproj">
+            BuildableName = "AFNetworkingLogger.framework"
+            BlueprintName = "AFNetworkingLogger iOS"
+            ReferencedContainer = "container:AFNetworkingLogger.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -86,9 +86,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "29D96E641BCC34CD00F571A5"
-            BuildableName = "AFNetworkActivityLogger.framework"
-            BlueprintName = "AFNetworkActivityLogger iOS"
-            ReferencedContainer = "container:AFNetworkActivityLogger.xcodeproj">
+            BuildableName = "AFNetworkingLogger.framework"
+            BlueprintName = "AFNetworkingLogger iOS"
+            ReferencedContainer = "container:AFNetworkingLogger.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
