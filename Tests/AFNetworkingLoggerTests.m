@@ -1,17 +1,17 @@
 //
-//  AFNetworkActivityLoggerTests.m
-//  AFNetworkActivityLoggerTests
+//  AFNetworkingLoggerTests.m
+//  AFNetworkingLoggerTests
 //
 //  Created by Kevin Harwood on 12/14/15.
 //  Copyright © 2015 Alamofire. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
-#import <AFNetworkActivityLogger/AFNetworkActivityLogger.h>
-#import <AFNetworkActivityLogger/AFNetworkActivityConsoleLogger.h>
+#import <AFNetworkingLogger/AFNetworkingLogger.h>
+#import <AFNetworkingLogger/AFNetworkingConsoleLogger.h>
 #import <AFNetworking/AFNetworking.h>
 
-@interface AFNetworkActivityTestLogger : NSObject <AFNetworkActivityLoggerProtocol>
+@interface AFNetworkingTestLogger : NSObject <AFNetworkingLoggerProtocol>
 
 @property (nonatomic, strong) NSPredicate *filterPredicate;
 @property (nonatomic, assign) AFHTTPRequestLoggerLevel level;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation AFNetworkActivityTestLogger
+@implementation AFNetworkingTestLogger
 
 - (void)URLSessionTaskDidStart:(NSURLSessionTask *)task {
     if (self.startBlock) {
@@ -38,15 +38,15 @@
 @end
 
 
-@interface AFNetworkActivityLoggerTests : XCTestCase
-@property (nonatomic, strong) AFNetworkActivityLogger *logger;
+@interface AFNetworkingLoggerTests : XCTestCase
+@property (nonatomic, strong) AFNetworkingLogger *logger;
 @end
 
-@implementation AFNetworkActivityLoggerTests
+@implementation AFNetworkingLoggerTests
 
 - (void)setUp {
     [super setUp];
-    self.logger = [AFNetworkActivityLogger new];
+    self.logger = [AFNetworkingLogger new];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
@@ -57,27 +57,27 @@
 }
 
 - (void)testSharedLoggerIsNotEqualToInitedLogger {
-    XCTAssertFalse([self.logger isEqual:[AFNetworkActivityLogger sharedLogger]]);
+    XCTAssertFalse([self.logger isEqual:[AFNetworkingLogger sharedLogger]]);
 }
 
 - (void)testInitialStateIsProperlyConfigured {
     XCTAssertTrue(self.logger.loggers.count == 1);
     NSArray *array = [self.logger.loggers allObjects];
-    id <AFNetworkActivityLoggerProtocol> consoleLogger = [array objectAtIndex:0];
-    XCTAssertTrue([consoleLogger isKindOfClass:[AFNetworkActivityConsoleLogger class]]);
+    id <AFNetworkingLoggerProtocol> consoleLogger = [array objectAtIndex:0];
+    XCTAssertTrue([consoleLogger isKindOfClass:[AFNetworkingConsoleLogger class]]);
     XCTAssertTrue(consoleLogger.level == AFLoggerLevelInfo);
 }
 
 - (void)testLoggerCanBeAdded {
     NSUInteger initialCount = self.logger.loggers.count;
 
-    AFNetworkActivityConsoleLogger *newLogger = [AFNetworkActivityConsoleLogger new];
+    AFNetworkingConsoleLogger *newLogger = [AFNetworkingConsoleLogger new];
     [self.logger addLogger:newLogger];
     XCTAssertTrue(self.logger.loggers.count == initialCount + 1);
 }
 
 - (void)testLoggerCanBeRemoved {
-    AFNetworkActivityConsoleLogger *newLogger = [AFNetworkActivityConsoleLogger new];
+    AFNetworkingConsoleLogger *newLogger = [AFNetworkingConsoleLogger new];
     [self.logger addLogger:newLogger];
 
     NSUInteger count = self.logger.loggers.count;
@@ -87,9 +87,9 @@
 }
 
 - (void)testLogLevelCanBeSetOnAllLoggersSimultaneously {
-    AFNetworkActivityConsoleLogger *firstLogger = [AFNetworkActivityConsoleLogger new];
+    AFNetworkingConsoleLogger *firstLogger = [AFNetworkingConsoleLogger new];
     firstLogger.level = AFLoggerLevelInfo;
-    AFNetworkActivityConsoleLogger *secondLogger = [AFNetworkActivityConsoleLogger new];
+    AFNetworkingConsoleLogger *secondLogger = [AFNetworkingConsoleLogger new];
     secondLogger.level = AFLoggerLevelError;
     
     [self.logger addLogger:firstLogger];
@@ -104,7 +104,7 @@
 - (void)testThatStartCallbackIsReceived {
     NSURL *baseURL = [NSURL URLWithString:@"https://httpbin.org"];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
-    AFNetworkActivityTestLogger *testLogger = [AFNetworkActivityTestLogger new];
+    AFNetworkingTestLogger *testLogger = [AFNetworkingTestLogger new];
 
     XCTestExpectation *expectation = [self expectationWithDescription:@"Start Block Should Be Called"];
     [testLogger setStartBlock:^(NSURLSessionTask *task) {
@@ -127,7 +127,7 @@
 - (void)testThatFinishCallbackIsReceived {
     NSURL *baseURL = [NSURL URLWithString:@"https://httpbin.org"];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
-    AFNetworkActivityTestLogger *testLogger = [AFNetworkActivityTestLogger new];
+    AFNetworkingTestLogger *testLogger = [AFNetworkingTestLogger new];
 
     XCTestExpectation *expectation = [self expectationWithDescription:@"Finish Block Should Be Called"];
     [testLogger setFinishBlock:^(NSURLSessionTask *task, id responseObject, NSTimeInterval elpasedTime, NSError *error) {
@@ -153,7 +153,7 @@
 - (void)testThatFinishCallbackIsReceivedWithError {
     NSURL *baseURL = [NSURL URLWithString:@"https://httpbin.org"];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
-    AFNetworkActivityTestLogger *testLogger = [AFNetworkActivityTestLogger new];
+    AFNetworkingTestLogger *testLogger = [AFNetworkingTestLogger new];
 
     XCTestExpectation *expectation = [self expectationWithDescription:@"Finish Block Should Be Called"];
     [testLogger setFinishBlock:^(NSURLSessionTask *task, id responseObject, NSTimeInterval elpasedTime, NSError *error) {
@@ -179,7 +179,7 @@
 - (void)testThatFilterPredicateIsRespectedForStartCallback {
     NSURL *baseURL = [NSURL URLWithString:@"https://httpbin.org"];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
-    AFNetworkActivityTestLogger *testLogger = [AFNetworkActivityTestLogger new];
+    AFNetworkingTestLogger *testLogger = [AFNetworkingTestLogger new];
 
 
     [testLogger setStartBlock:^(NSURLSessionTask *task) {
@@ -210,7 +210,7 @@
 - (void)testThatFilterPredicateIsRespectedForFinishCallback {
     NSURL *baseURL = [NSURL URLWithString:@"https://httpbin.org"];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
-    AFNetworkActivityTestLogger *testLogger = [AFNetworkActivityTestLogger new];
+    AFNetworkingTestLogger *testLogger = [AFNetworkingTestLogger new];
 
 
     [testLogger setFinishBlock:^(NSURLSessionTask *task, id responseObject, NSTimeInterval elapsedTime, NSError *error) {
@@ -241,7 +241,7 @@
 - (void)testThatIndividualLoggerIsNotCalledWhenLoggerIsNilledOut {
     NSURL *baseURL = [NSURL URLWithString:@"https://httpbin.org"];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
-    AFNetworkActivityTestLogger *testLogger = [AFNetworkActivityTestLogger new];
+    AFNetworkingTestLogger *testLogger = [AFNetworkingTestLogger new];
 
 
     [testLogger setStartBlock:^(NSURLSessionTask *task) {
@@ -265,5 +265,101 @@
     [manager invalidateSessionCancelingTasks:YES];
 }
 
+- (void)testThatResponseSerializerIsAFHTTPResponseSerializerAndResponseBodyIsText {
+    NSURL *baseURL = [NSURL URLWithString:@"https://httpbin.org"];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    AFNetworkingTestLogger *testLogger = [AFNetworkingTestLogger new];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Finish Block Should Be Called"];
+    [testLogger setFinishBlock:^(NSURLSessionTask *task, id responseObject, NSTimeInterval elpasedTime, NSError *error) {
+        [expectation fulfill];
+    }];
+    [self.logger addLogger:testLogger];
+    [self.logger setLogLevel:AFLoggerLevelDebug];
+    [self.logger startLogging];
+    
+    [manager
+     GET:@"ip"
+     parameters:nil
+     progress:nil
+     success:nil
+     failure:nil];
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
+    [manager invalidateSessionCancelingTasks:YES];
+}
+
+- (void)testThatResponseSerializerIsAFHTTPResponseSerializerAndResponseBodyIsNotText {
+    NSURL *baseURL = [NSURL URLWithString:@"https://httpbin.org"];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    AFNetworkingTestLogger *testLogger = [AFNetworkingTestLogger new];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Finish Block Should Be Called"];
+    [testLogger setFinishBlock:^(NSURLSessionTask *task, id responseObject, NSTimeInterval elpasedTime, NSError *error) {
+        [expectation fulfill];
+    }];
+    [self.logger addLogger:testLogger];
+    [self.logger setLogLevel:AFLoggerLevelDebug];
+    [self.logger startLogging];
+    
+    [manager
+     GET:@"image/jpeg"
+     parameters:nil
+     progress:nil
+     success:nil
+     failure:nil];
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
+    [manager invalidateSessionCancelingTasks:YES];
+}
+
+- (void)testYY {
+    NSURL *baseURL = [NSURL URLWithString:@"https://httpbin.org"];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    AFNetworkingTestLogger *testLogger = [AFNetworkingTestLogger new];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Finish Block Should Be Called"];
+    [testLogger setFinishBlock:^(NSURLSessionTask *task, id responseObject, NSTimeInterval elpasedTime, NSError *error) {
+        [expectation fulfill];
+    }];
+    [self.logger addLogger:testLogger];
+    [self.logger setLogLevel:AFLoggerLevelDebug];
+    [self.logger startLogging];
+    
+    [manager
+     POST:@"post"
+     parameters:@"x=y"
+     progress:nil
+     success:nil
+     failure:nil];
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
+    [manager invalidateSessionCancelingTasks:YES];
+}
+
+- (void)testZZ {
+    NSURL *baseURL = [NSURL URLWithString:@"https://httpbin.org"];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    AFNetworkingTestLogger *testLogger = [AFNetworkingTestLogger new];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Finish Block Should Be Called"];
+    [testLogger setFinishBlock:^(NSURLSessionTask *task, id responseObject, NSTimeInterval elpasedTime, NSError *error) {
+        [expectation fulfill];
+    }];
+    
+    [self.logger addLogger:testLogger];
+    [self.logger setLogLevel:AFLoggerLevelError];
+    [self.logger startLogging];
+    
+    [manager
+     POST:@"status/404"
+     parameters:@"x=y"
+     progress:nil
+     success:nil
+     failure:nil];
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
+    [manager invalidateSessionCancelingTasks:YES];
+}
 
 @end

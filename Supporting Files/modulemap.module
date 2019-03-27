@@ -1,16 +1,16 @@
-framework module AFNetworkActivityLogger {
-    module AFNetworkActivityLogger {
-        header "AFNetworkActivityLogger.h"
+framework module AFNetworkingLogger {
+    module AFNetworkingLogger {
+        header "AFNetworkingLogger.h"
         export *
     }
     
-    module AFNetworkActivityLoggerProtocol {
-        header "AFNetworkActivityLoggerProtocol.h"
+    module AFNetworkingLoggerProtocol {
+        header "AFNetworkingLoggerProtocol.h"
         export *
     }
     
-    module AFNetworkActivityConsoleLogger {
-        header "AFNetworkActivityConsoleLogger.h"
+    module AFNetworkingConsoleLogger {
+        header "AFNetworkingConsoleLogger.h"
         export *
     }
 }

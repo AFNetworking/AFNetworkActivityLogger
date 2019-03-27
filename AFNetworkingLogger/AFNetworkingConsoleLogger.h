@@ -1,4 +1,4 @@
-// AFNetworkActivityLogger.h
+// AFNetworkingConsoleLogger.h
 //
 // Copyright (c) 2018 AFNetworking (http://afnetworking.com/)
 //
@@ -20,17 +20,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "AFNetworkingLoggerProtocol.h"
 
-//! Project version number for AFNetworkActivityLogger.
-FOUNDATION_EXPORT double AFNetworkActivityLoggerVersionNumber;
+/**
+ `AFNetworkingConsoleLogger` logs requests and responses made by AFNetworking to the console.
+ */
+@interface AFNetworkingConsoleLogger : NSObject <AFNetworkingLoggerProtocol>
 
-//! Project version string for AFNetworkActivityLogger.
-FOUNDATION_EXPORT const unsigned char AFNetworkActivityLoggerVersionString[];
+@property (nonatomic, strong) NSPredicate *filterPredicate;
+@property (nonatomic, assign) AFHTTPRequestLoggerLevel level;
 
-// In this header, you should import all the public headers of your framework using statements like #import <AFNetworkActivityLogger/PublicHeader.h>
-
-#import <AFNetworkActivityLogger/AFNetworkActivityLogger.h>
-#import <AFNetworkActivityLogger/AFNetworkActivityLoggerProtocol.h>
-#import <AFNetworkActivityLogger/AFNetworkActivityConsoleLogger.h>
-
+@end

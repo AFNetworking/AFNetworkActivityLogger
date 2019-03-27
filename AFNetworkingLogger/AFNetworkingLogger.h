@@ -1,4 +1,4 @@
-// AFNetworkActivityLogger.h
+// AFNetworkingLogger.h
 //
 // Copyright (c) 2018 AFNetworking (http://afnetworking.com/)
 //
@@ -21,23 +21,23 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import "AFNetworkActivityLoggerProtocol.h"
+#import "AFNetworkingLoggerProtocol.h"
 
 /**
- `AFNetworkActivityLogger` logs requests and responses made by AFNetworking, with an adjustable level of detail.
+ `AFNetworkingLogger` logs requests and responses made by AFNetworking, with an adjustable level of detail.
  
- Applications should enable the shared instance of `AFNetworkActivityLogger` in `AppDelegate -application:didFinishLaunchingWithOptions:`:
+ Applications should enable the shared instance of `AFNetworkingLogger` in `AppDelegate -application:didFinishLaunchingWithOptions:`:
 
-        [[AFNetworkActivityLogger sharedLogger] startLogging];
+        [[AFNetworkingLogger sharedLogger] startLogging];
  
- `AFNetworkActivityLogger` listens for `AFNetworkingOperationDidStartNotification` and `AFNetworkingOperationDidFinishNotification` notifications, which are posted by AFNetworking as request operations are started and finish. For further customization of logging output, users are encouraged to implement desired functionality by listening for these notifications.
+ `AFNetworkingLogger` listens for `AFNetworkingOperationDidStartNotification` and `AFNetworkingOperationDidFinishNotification` notifications, which are posted by AFNetworking as request operations are started and finish. For further customization of logging output, users are encouraged to implement desired functionality by listening for these notifications.
  */
-@interface AFNetworkActivityLogger : NSObject
+@interface AFNetworkingLogger : NSObject
 
 /**
- The set of loggers current managed by the shared activity logger. By default, this includes one `AFNetworkActivityConsoleLogger`
+ The set of loggers current managed by the shared activity logger. By default, this includes one `AFNetworkingConsoleLogger`
  */
-@property (nonatomic, strong, readonly) NSSet <AFNetworkActivityLoggerProtocol> *loggers;
+@property (nonatomic, strong, readonly) NSSet <AFNetworkingLoggerProtocol> *loggers;
 
 /**
  Returns the shared logger instance.
@@ -62,11 +62,11 @@
 /**
  Adds the given logger to be managed to the `loggers` set.
  */
-- (void)addLogger:(id <AFNetworkActivityLoggerProtocol>)logger;
+- (void)addLogger:(id <AFNetworkingLoggerProtocol>)logger;
 
 /**
  Removes the given logger from the `loggers` set.
  */
-- (void)removeLogger:(id <AFNetworkActivityLoggerProtocol>)logger;
+- (void)removeLogger:(id <AFNetworkingLoggerProtocol>)logger;
 
 @end

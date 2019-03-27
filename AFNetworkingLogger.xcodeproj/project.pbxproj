@@ -7,44 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		297DF56B1C1F0F72001FA807 /* AFNetworkActivityLoggerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 297DF5691C1F0F72001FA807 /* AFNetworkActivityLoggerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		297DF56C1C1F0F72001FA807 /* AFNetworkActivityLoggerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 297DF5691C1F0F72001FA807 /* AFNetworkActivityLoggerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		297DF56D1C1F0F72001FA807 /* AFNetworkActivityLoggerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 297DF5691C1F0F72001FA807 /* AFNetworkActivityLoggerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		297DF56E1C1F0F72001FA807 /* AFNetworkActivityLoggerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 297DF5691C1F0F72001FA807 /* AFNetworkActivityLoggerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		297DF5751C1F1058001FA807 /* AFNetworkActivityConsoleLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 297DF5731C1F1058001FA807 /* AFNetworkActivityConsoleLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		297DF5761C1F1058001FA807 /* AFNetworkActivityConsoleLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 297DF5731C1F1058001FA807 /* AFNetworkActivityConsoleLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		297DF5771C1F1058001FA807 /* AFNetworkActivityConsoleLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 297DF5731C1F1058001FA807 /* AFNetworkActivityConsoleLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		297DF5781C1F1058001FA807 /* AFNetworkActivityConsoleLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 297DF5731C1F1058001FA807 /* AFNetworkActivityConsoleLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		297DF5791C1F1058001FA807 /* AFNetworkActivityConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 297DF5741C1F1058001FA807 /* AFNetworkActivityConsoleLogger.m */; };
-		297DF57A1C1F1058001FA807 /* AFNetworkActivityConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 297DF5741C1F1058001FA807 /* AFNetworkActivityConsoleLogger.m */; };
-		297DF57B1C1F1058001FA807 /* AFNetworkActivityConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 297DF5741C1F1058001FA807 /* AFNetworkActivityConsoleLogger.m */; };
-		297DF57C1C1F1058001FA807 /* AFNetworkActivityConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 297DF5741C1F1058001FA807 /* AFNetworkActivityConsoleLogger.m */; };
-		297DF5841C1F1CA2001FA807 /* AFNetworkActivityLoggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 297DF5831C1F1CA2001FA807 /* AFNetworkActivityLoggerTests.m */; };
-		297DF5861C1F1CA2001FA807 /* AFNetworkActivityLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D96E651BCC34CD00F571A5 /* AFNetworkActivityLogger.framework */; };
+		297DF56B1C1F0F72001FA807 /* AFNetworkingLoggerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 297DF5691C1F0F72001FA807 /* AFNetworkingLoggerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		297DF56C1C1F0F72001FA807 /* AFNetworkingLoggerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 297DF5691C1F0F72001FA807 /* AFNetworkingLoggerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		297DF56D1C1F0F72001FA807 /* AFNetworkingLoggerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 297DF5691C1F0F72001FA807 /* AFNetworkingLoggerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		297DF56E1C1F0F72001FA807 /* AFNetworkingLoggerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 297DF5691C1F0F72001FA807 /* AFNetworkingLoggerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		297DF5751C1F1058001FA807 /* AFNetworkingConsoleLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 297DF5731C1F1058001FA807 /* AFNetworkingConsoleLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		297DF5761C1F1058001FA807 /* AFNetworkingConsoleLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 297DF5731C1F1058001FA807 /* AFNetworkingConsoleLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		297DF5771C1F1058001FA807 /* AFNetworkingConsoleLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 297DF5731C1F1058001FA807 /* AFNetworkingConsoleLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		297DF5781C1F1058001FA807 /* AFNetworkingConsoleLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 297DF5731C1F1058001FA807 /* AFNetworkingConsoleLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		297DF5791C1F1058001FA807 /* AFNetworkingConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 297DF5741C1F1058001FA807 /* AFNetworkingConsoleLogger.m */; };
+		297DF57A1C1F1058001FA807 /* AFNetworkingConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 297DF5741C1F1058001FA807 /* AFNetworkingConsoleLogger.m */; };
+		297DF57B1C1F1058001FA807 /* AFNetworkingConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 297DF5741C1F1058001FA807 /* AFNetworkingConsoleLogger.m */; };
+		297DF57C1C1F1058001FA807 /* AFNetworkingConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 297DF5741C1F1058001FA807 /* AFNetworkingConsoleLogger.m */; };
+		297DF5841C1F1CA2001FA807 /* AFNetworkingLoggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 297DF5831C1F1CA2001FA807 /* AFNetworkingLoggerTests.m */; };
+		297DF5861C1F1CA2001FA807 /* AFNetworkingLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D96E651BCC34CD00F571A5 /* AFNetworkingLogger.framework */; };
 		297DF58C1C1F1CF1001FA807 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D96E781BCC3B9B00F571A5 /* AFNetworking.framework */; };
-		29D77AAA1BCC49E9005B1EF5 /* AFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D96E721BCC357B00F571A5 /* AFNetworkActivityLogger.m */; };
+		29D77AAA1BCC49E9005B1EF5 /* AFNetworkingLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D96E721BCC357B00F571A5 /* AFNetworkingLogger.m */; };
 		29D77AAC1BCC4A01005B1EF5 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D77AAB1BCC4A01005B1EF5 /* AFNetworking.framework */; };
-		29D77AAE1BCC4A68005B1EF5 /* AFNetworkActivityLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 29D96E711BCC357B00F571A5 /* AFNetworkActivityLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		29D77AAF1BCC4A6E005B1EF5 /* AFNetworkActivityLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 29D96E901BCC3F1D00F571A5 /* AFNetworkActivityLogger.h */; };
-		29D77ABD1BCC4C41005B1EF5 /* AFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D96E721BCC357B00F571A5 /* AFNetworkActivityLogger.m */; };
-		29D77ABE1BCC4C65005B1EF5 /* AFNetworkActivityLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 29D96E711BCC357B00F571A5 /* AFNetworkActivityLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		29D77ABF1BCC4C6C005B1EF5 /* AFNetworkActivityLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 29D96E901BCC3F1D00F571A5 /* AFNetworkActivityLogger.h */; };
+		29D77AAE1BCC4A68005B1EF5 /* AFNetworkingLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 29D96E711BCC357B00F571A5 /* AFNetworkingLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		29D77AAF1BCC4A6E005B1EF5 /* AFNetworkingLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 29D96E901BCC3F1D00F571A5 /* AFNetworkingLogger.h */; };
+		29D77ABD1BCC4C41005B1EF5 /* AFNetworkingLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D96E721BCC357B00F571A5 /* AFNetworkingLogger.m */; };
+		29D77ABE1BCC4C65005B1EF5 /* AFNetworkingLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 29D96E711BCC357B00F571A5 /* AFNetworkingLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		29D77ABF1BCC4C6C005B1EF5 /* AFNetworkingLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 29D96E901BCC3F1D00F571A5 /* AFNetworkingLogger.h */; };
 		29D77AC21BCC4C8F005B1EF5 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D77AC11BCC4C8F005B1EF5 /* AFNetworking.framework */; };
-		29D77AD11BCC4D96005B1EF5 /* AFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D96E721BCC357B00F571A5 /* AFNetworkActivityLogger.m */; };
+		29D77AD11BCC4D96005B1EF5 /* AFNetworkingLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D96E721BCC357B00F571A5 /* AFNetworkingLogger.m */; };
 		29D77AD31BCC4DA2005B1EF5 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D77AD21BCC4DA2005B1EF5 /* AFNetworking.framework */; };
-		29D77AD51BCC4DB9005B1EF5 /* AFNetworkActivityLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 29D96E711BCC357B00F571A5 /* AFNetworkActivityLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		29D77AD61BCC4DBF005B1EF5 /* AFNetworkActivityLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 29D96E901BCC3F1D00F571A5 /* AFNetworkActivityLogger.h */; };
-		29D96E731BCC357B00F571A5 /* AFNetworkActivityLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 29D96E711BCC357B00F571A5 /* AFNetworkActivityLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		29D96E741BCC357B00F571A5 /* AFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D96E721BCC357B00F571A5 /* AFNetworkActivityLogger.m */; };
+		29D77AD51BCC4DB9005B1EF5 /* AFNetworkingLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 29D96E711BCC357B00F571A5 /* AFNetworkingLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		29D77AD61BCC4DBF005B1EF5 /* AFNetworkingLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 29D96E901BCC3F1D00F571A5 /* AFNetworkingLogger.h */; };
+		29D96E731BCC357B00F571A5 /* AFNetworkingLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 29D96E711BCC357B00F571A5 /* AFNetworkingLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		29D96E741BCC357B00F571A5 /* AFNetworkingLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D96E721BCC357B00F571A5 /* AFNetworkingLogger.m */; };
 		29D96E791BCC3B9B00F571A5 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D96E781BCC3B9B00F571A5 /* AFNetworking.framework */; };
-		29D96E921BCC3F1D00F571A5 /* AFNetworkActivityLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 29D96E901BCC3F1D00F571A5 /* AFNetworkActivityLogger.h */; };
+		29D96E921BCC3F1D00F571A5 /* AFNetworkingLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 29D96E901BCC3F1D00F571A5 /* AFNetworkingLogger.h */; };
 		29F28C241C1F1D84006BD785 /* AFNetworking.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 29D96E781BCC3B9B00F571A5 /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		29F28C2E1C1F2628006BD785 /* AFNetworkActivityLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D77AC91BCC4D4D005B1EF5 /* AFNetworkActivityLogger.framework */; };
-		29F28C341C1F265C006BD785 /* AFNetworkActivityLoggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 297DF5831C1F1CA2001FA807 /* AFNetworkActivityLoggerTests.m */; };
+		29F28C2E1C1F2628006BD785 /* AFNetworkingLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D77AC91BCC4D4D005B1EF5 /* AFNetworkingLogger.framework */; };
+		29F28C341C1F265C006BD785 /* AFNetworkingLoggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 297DF5831C1F1CA2001FA807 /* AFNetworkingLoggerTests.m */; };
 		29F28C351C1F2666006BD785 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D77AD21BCC4DA2005B1EF5 /* AFNetworking.framework */; };
 		29F28C371C1F267A006BD785 /* AFNetworking.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 29D77AD21BCC4DA2005B1EF5 /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		29F28C411C1F2C54006BD785 /* AFNetworkActivityLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D77AA21BCC49C9005B1EF5 /* AFNetworkActivityLogger.framework */; };
-		29F28C471C1F2C76006BD785 /* AFNetworkActivityLoggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 297DF5831C1F1CA2001FA807 /* AFNetworkActivityLoggerTests.m */; };
+		29F28C411C1F2C54006BD785 /* AFNetworkingLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D77AA21BCC49C9005B1EF5 /* AFNetworkingLogger.framework */; };
+		29F28C471C1F2C76006BD785 /* AFNetworkingLoggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 297DF5831C1F1CA2001FA807 /* AFNetworkingLoggerTests.m */; };
 		29F28C481C1F2C81006BD785 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D77AAB1BCC4A01005B1EF5 /* AFNetworking.framework */; };
 		29F28C4B1C1F2C9D006BD785 /* AFNetworking.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 29D77AAB1BCC4A01005B1EF5 /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -55,21 +55,21 @@
 			containerPortal = 29D96E5C1BCC34CD00F571A5 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 29D96E641BCC34CD00F571A5;
-			remoteInfo = "AFNetworkActivityLogger iOS";
+			remoteInfo = "AFNetworkingLogger iOS";
 		};
 		29F28C2F1C1F2628006BD785 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29D96E5C1BCC34CD00F571A5 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 29D77AC81BCC4D4D005B1EF5;
-			remoteInfo = "AFNetworkActivityLogger tvOS";
+			remoteInfo = "AFNetworkingLogger tvOS";
 		};
 		29F28C421C1F2C54006BD785 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29D96E5C1BCC34CD00F571A5 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 29D77AA11BCC49C9005B1EF5;
-			remoteInfo = "AFNetworkActivityLogger OS X";
+			remoteInfo = "AFNetworkingLogger OS X";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -116,26 +116,26 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		297DF5691C1F0F72001FA807 /* AFNetworkActivityLoggerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityLoggerProtocol.h; sourceTree = "<group>"; };
-		297DF5731C1F1058001FA807 /* AFNetworkActivityConsoleLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityConsoleLogger.h; sourceTree = "<group>"; };
-		297DF5741C1F1058001FA807 /* AFNetworkActivityConsoleLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityConsoleLogger.m; sourceTree = "<group>"; };
-		297DF5811C1F1CA2001FA807 /* AFNetworkActivityLoggerTests iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AFNetworkActivityLoggerTests iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		297DF5831C1F1CA2001FA807 /* AFNetworkActivityLoggerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityLoggerTests.m; sourceTree = "<group>"; };
+		297DF5691C1F0F72001FA807 /* AFNetworkingLoggerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkingLoggerProtocol.h; sourceTree = "<group>"; };
+		297DF5731C1F1058001FA807 /* AFNetworkingConsoleLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkingConsoleLogger.h; sourceTree = "<group>"; };
+		297DF5741C1F1058001FA807 /* AFNetworkingConsoleLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkingConsoleLogger.m; sourceTree = "<group>"; };
+		297DF5811C1F1CA2001FA807 /* AFNetworkingLoggerTests iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AFNetworkingLoggerTests iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		297DF5831C1F1CA2001FA807 /* AFNetworkingLoggerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFNetworkingLoggerTests.m; sourceTree = "<group>"; };
 		297DF5851C1F1CA2001FA807 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		29D77AA21BCC49C9005B1EF5 /* AFNetworkActivityLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFNetworkActivityLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29D77AA21BCC49C9005B1EF5 /* AFNetworkingLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFNetworkingLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29D77AAB1BCC4A01005B1EF5 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/Mac/AFNetworking.framework; sourceTree = "<group>"; };
-		29D77AB51BCC4BDD005B1EF5 /* AFNetworkActivityLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFNetworkActivityLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29D77AB51BCC4BDD005B1EF5 /* AFNetworkingLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFNetworkingLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29D77AC11BCC4C8F005B1EF5 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/watchOS/AFNetworking.framework; sourceTree = "<group>"; };
-		29D77AC91BCC4D4D005B1EF5 /* AFNetworkActivityLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFNetworkActivityLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29D77AC91BCC4D4D005B1EF5 /* AFNetworkingLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFNetworkingLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29D77AD21BCC4DA2005B1EF5 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/tvOS/AFNetworking.framework; sourceTree = "<group>"; };
-		29D96E651BCC34CD00F571A5 /* AFNetworkActivityLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFNetworkActivityLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		29D96E711BCC357B00F571A5 /* AFNetworkActivityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityLogger.h; sourceTree = "<group>"; };
-		29D96E721BCC357B00F571A5 /* AFNetworkActivityLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityLogger.m; sourceTree = "<group>"; };
+		29D96E651BCC34CD00F571A5 /* AFNetworkingLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFNetworkingLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29D96E711BCC357B00F571A5 /* AFNetworkingLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkingLogger.h; sourceTree = "<group>"; };
+		29D96E721BCC357B00F571A5 /* AFNetworkingLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkingLogger.m; sourceTree = "<group>"; };
 		29D96E781BCC3B9B00F571A5 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
-		29D96E901BCC3F1D00F571A5 /* AFNetworkActivityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityLogger.h; sourceTree = "<group>"; };
+		29D96E901BCC3F1D00F571A5 /* AFNetworkingLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkingLogger.h; sourceTree = "<group>"; };
 		29D96E911BCC3F1D00F571A5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		29F28C291C1F2628006BD785 /* AFNetworkActivityLoggerTests tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AFNetworkActivityLoggerTests tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		29F28C3C1C1F2C54006BD785 /* AFNetworkActivityLoggerTests OS X Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AFNetworkActivityLoggerTests OS X Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		29F28C291C1F2628006BD785 /* AFNetworkingLoggerTests tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AFNetworkingLoggerTests tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		29F28C3C1C1F2C54006BD785 /* AFNetworkingLoggerTests OS X Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AFNetworkingLoggerTests OS X Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				297DF5861C1F1CA2001FA807 /* AFNetworkActivityLogger.framework in Frameworks */,
+				297DF5861C1F1CA2001FA807 /* AFNetworkingLogger.framework in Frameworks */,
 				297DF58C1C1F1CF1001FA807 /* AFNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,7 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29F28C2E1C1F2628006BD785 /* AFNetworkActivityLogger.framework in Frameworks */,
+				29F28C2E1C1F2628006BD785 /* AFNetworkingLogger.framework in Frameworks */,
 				29F28C351C1F2666006BD785 /* AFNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,7 +193,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29F28C411C1F2C54006BD785 /* AFNetworkActivityLogger.framework in Frameworks */,
+				29F28C411C1F2C54006BD785 /* AFNetworkingLogger.framework in Frameworks */,
 				29F28C481C1F2C81006BD785 /* AFNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,13 +201,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		297DF5821C1F1CA2001FA807 /* AFNetworkActivityLoggerTests */ = {
+		297DF5821C1F1CA2001FA807 /* AFNetworkingLoggerTests */ = {
 			isa = PBXGroup;
 			children = (
-				297DF5831C1F1CA2001FA807 /* AFNetworkActivityLoggerTests.m */,
+				297DF5831C1F1CA2001FA807 /* AFNetworkingLoggerTests.m */,
 				297DF5851C1F1CA2001FA807 /* Info.plist */,
 			);
-			name = AFNetworkActivityLoggerTests;
+			name = AFNetworkingLoggerTests;
 			path = Tests;
 			sourceTree = "<group>";
 		};
@@ -226,9 +226,9 @@
 			isa = PBXGroup;
 			children = (
 				29D77AD41BCC4DA8005B1EF5 /* Dependency */,
-				29D96E701BCC357B00F571A5 /* AFNetworkActivityLogger */,
+				29D96E701BCC357B00F571A5 /* AFNetworkingLogger */,
 				29D96E8F1BCC3F1D00F571A5 /* Supporting Files */,
-				297DF5821C1F1CA2001FA807 /* AFNetworkActivityLoggerTests */,
+				297DF5821C1F1CA2001FA807 /* AFNetworkingLoggerTests */,
 				29D96E661BCC34CD00F571A5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -236,33 +236,33 @@
 		29D96E661BCC34CD00F571A5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				29D96E651BCC34CD00F571A5 /* AFNetworkActivityLogger.framework */,
-				29D77AA21BCC49C9005B1EF5 /* AFNetworkActivityLogger.framework */,
-				29D77AB51BCC4BDD005B1EF5 /* AFNetworkActivityLogger.framework */,
-				29D77AC91BCC4D4D005B1EF5 /* AFNetworkActivityLogger.framework */,
-				297DF5811C1F1CA2001FA807 /* AFNetworkActivityLoggerTests iOS Tests.xctest */,
-				29F28C291C1F2628006BD785 /* AFNetworkActivityLoggerTests tvOS Tests.xctest */,
-				29F28C3C1C1F2C54006BD785 /* AFNetworkActivityLoggerTests OS X Tests.xctest */,
+				29D96E651BCC34CD00F571A5 /* AFNetworkingLogger.framework */,
+				29D77AA21BCC49C9005B1EF5 /* AFNetworkingLogger.framework */,
+				29D77AB51BCC4BDD005B1EF5 /* AFNetworkingLogger.framework */,
+				29D77AC91BCC4D4D005B1EF5 /* AFNetworkingLogger.framework */,
+				297DF5811C1F1CA2001FA807 /* AFNetworkingLoggerTests iOS Tests.xctest */,
+				29F28C291C1F2628006BD785 /* AFNetworkingLoggerTests tvOS Tests.xctest */,
+				29F28C3C1C1F2C54006BD785 /* AFNetworkingLoggerTests OS X Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29D96E701BCC357B00F571A5 /* AFNetworkActivityLogger */ = {
+		29D96E701BCC357B00F571A5 /* AFNetworkingLogger */ = {
 			isa = PBXGroup;
 			children = (
-				29D96E711BCC357B00F571A5 /* AFNetworkActivityLogger.h */,
-				29D96E721BCC357B00F571A5 /* AFNetworkActivityLogger.m */,
-				297DF5691C1F0F72001FA807 /* AFNetworkActivityLoggerProtocol.h */,
-				297DF5731C1F1058001FA807 /* AFNetworkActivityConsoleLogger.h */,
-				297DF5741C1F1058001FA807 /* AFNetworkActivityConsoleLogger.m */,
+				29D96E711BCC357B00F571A5 /* AFNetworkingLogger.h */,
+				29D96E721BCC357B00F571A5 /* AFNetworkingLogger.m */,
+				297DF5691C1F0F72001FA807 /* AFNetworkingLoggerProtocol.h */,
+				297DF5731C1F1058001FA807 /* AFNetworkingConsoleLogger.h */,
+				297DF5741C1F1058001FA807 /* AFNetworkingConsoleLogger.m */,
 			);
-			path = AFNetworkActivityLogger;
+			path = AFNetworkingLogger;
 			sourceTree = "<group>";
 		};
 		29D96E8F1BCC3F1D00F571A5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				29D96E901BCC3F1D00F571A5 /* AFNetworkActivityLogger.h */,
+				29D96E901BCC3F1D00F571A5 /* AFNetworkingLogger.h */,
 				29D96E911BCC3F1D00F571A5 /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -275,10 +275,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				297DF56C1C1F0F72001FA807 /* AFNetworkActivityLoggerProtocol.h in Headers */,
-				29D77AAE1BCC4A68005B1EF5 /* AFNetworkActivityLogger.h in Headers */,
-				297DF5761C1F1058001FA807 /* AFNetworkActivityConsoleLogger.h in Headers */,
-				29D77AAF1BCC4A6E005B1EF5 /* AFNetworkActivityLogger.h in Headers */,
+				297DF56C1C1F0F72001FA807 /* AFNetworkingLoggerProtocol.h in Headers */,
+				29D77AAE1BCC4A68005B1EF5 /* AFNetworkingLogger.h in Headers */,
+				297DF5761C1F1058001FA807 /* AFNetworkingConsoleLogger.h in Headers */,
+				29D77AAF1BCC4A6E005B1EF5 /* AFNetworkingLogger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,10 +286,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				297DF56D1C1F0F72001FA807 /* AFNetworkActivityLoggerProtocol.h in Headers */,
-				29D77ABE1BCC4C65005B1EF5 /* AFNetworkActivityLogger.h in Headers */,
-				297DF5771C1F1058001FA807 /* AFNetworkActivityConsoleLogger.h in Headers */,
-				29D77ABF1BCC4C6C005B1EF5 /* AFNetworkActivityLogger.h in Headers */,
+				297DF56D1C1F0F72001FA807 /* AFNetworkingLoggerProtocol.h in Headers */,
+				29D77ABE1BCC4C65005B1EF5 /* AFNetworkingLogger.h in Headers */,
+				297DF5771C1F1058001FA807 /* AFNetworkingConsoleLogger.h in Headers */,
+				29D77ABF1BCC4C6C005B1EF5 /* AFNetworkingLogger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,10 +297,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				297DF56E1C1F0F72001FA807 /* AFNetworkActivityLoggerProtocol.h in Headers */,
-				29D77AD51BCC4DB9005B1EF5 /* AFNetworkActivityLogger.h in Headers */,
-				297DF5781C1F1058001FA807 /* AFNetworkActivityConsoleLogger.h in Headers */,
-				29D77AD61BCC4DBF005B1EF5 /* AFNetworkActivityLogger.h in Headers */,
+				297DF56E1C1F0F72001FA807 /* AFNetworkingLoggerProtocol.h in Headers */,
+				29D77AD51BCC4DB9005B1EF5 /* AFNetworkingLogger.h in Headers */,
+				297DF5781C1F1058001FA807 /* AFNetworkingConsoleLogger.h in Headers */,
+				29D77AD61BCC4DBF005B1EF5 /* AFNetworkingLogger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,19 +308,19 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				297DF56B1C1F0F72001FA807 /* AFNetworkActivityLoggerProtocol.h in Headers */,
-				29D96E731BCC357B00F571A5 /* AFNetworkActivityLogger.h in Headers */,
-				297DF5751C1F1058001FA807 /* AFNetworkActivityConsoleLogger.h in Headers */,
-				29D96E921BCC3F1D00F571A5 /* AFNetworkActivityLogger.h in Headers */,
+				297DF56B1C1F0F72001FA807 /* AFNetworkingLoggerProtocol.h in Headers */,
+				29D96E731BCC357B00F571A5 /* AFNetworkingLogger.h in Headers */,
+				297DF5751C1F1058001FA807 /* AFNetworkingConsoleLogger.h in Headers */,
+				29D96E921BCC3F1D00F571A5 /* AFNetworkingLogger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		297DF5801C1F1CA2001FA807 /* AFNetworkActivityLoggerTests iOS Tests */ = {
+		297DF5801C1F1CA2001FA807 /* AFNetworkingLoggerTests iOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 297DF5891C1F1CA2001FA807 /* Build configuration list for PBXNativeTarget "AFNetworkActivityLoggerTests iOS Tests" */;
+			buildConfigurationList = 297DF5891C1F1CA2001FA807 /* Build configuration list for PBXNativeTarget "AFNetworkingLoggerTests iOS Tests" */;
 			buildPhases = (
 				297DF57D1C1F1CA2001FA807 /* Sources */,
 				297DF57E1C1F1CA2001FA807 /* Frameworks */,
@@ -332,14 +332,14 @@
 			dependencies = (
 				297DF5881C1F1CA2001FA807 /* PBXTargetDependency */,
 			);
-			name = "AFNetworkActivityLoggerTests iOS Tests";
-			productName = AFNetworkActivityLoggerTests;
-			productReference = 297DF5811C1F1CA2001FA807 /* AFNetworkActivityLoggerTests iOS Tests.xctest */;
+			name = "AFNetworkingLoggerTests iOS Tests";
+			productName = AFNetworkingLoggerTests;
+			productReference = 297DF5811C1F1CA2001FA807 /* AFNetworkingLoggerTests iOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		29D77AA11BCC49C9005B1EF5 /* AFNetworkActivityLogger OS X */ = {
+		29D77AA11BCC49C9005B1EF5 /* AFNetworkingLogger OS X */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 29D77AA71BCC49C9005B1EF5 /* Build configuration list for PBXNativeTarget "AFNetworkActivityLogger OS X" */;
+			buildConfigurationList = 29D77AA71BCC49C9005B1EF5 /* Build configuration list for PBXNativeTarget "AFNetworkingLogger OS X" */;
 			buildPhases = (
 				29D77A9D1BCC49C9005B1EF5 /* Sources */,
 				29D77A9E1BCC49C9005B1EF5 /* Frameworks */,
@@ -351,14 +351,14 @@
 			);
 			dependencies = (
 			);
-			name = "AFNetworkActivityLogger OS X";
-			productName = "AFNetworkActivityLogger OS X";
-			productReference = 29D77AA21BCC49C9005B1EF5 /* AFNetworkActivityLogger.framework */;
+			name = "AFNetworkingLogger OS X";
+			productName = "AFNetworkingLogger OS X";
+			productReference = 29D77AA21BCC49C9005B1EF5 /* AFNetworkingLogger.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		29D77AB41BCC4BDD005B1EF5 /* AFNetworkActivityLogger watchOS */ = {
+		29D77AB41BCC4BDD005B1EF5 /* AFNetworkingLogger watchOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 29D77ABA1BCC4BDD005B1EF5 /* Build configuration list for PBXNativeTarget "AFNetworkActivityLogger watchOS" */;
+			buildConfigurationList = 29D77ABA1BCC4BDD005B1EF5 /* Build configuration list for PBXNativeTarget "AFNetworkingLogger watchOS" */;
 			buildPhases = (
 				29D77AB01BCC4BDD005B1EF5 /* Sources */,
 				29D77AB11BCC4BDD005B1EF5 /* Frameworks */,
@@ -371,14 +371,14 @@
 			);
 			dependencies = (
 			);
-			name = "AFNetworkActivityLogger watchOS";
-			productName = "AFNetworkActivityLogger watchOS";
-			productReference = 29D77AB51BCC4BDD005B1EF5 /* AFNetworkActivityLogger.framework */;
+			name = "AFNetworkingLogger watchOS";
+			productName = "AFNetworkingLogger watchOS";
+			productReference = 29D77AB51BCC4BDD005B1EF5 /* AFNetworkingLogger.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		29D77AC81BCC4D4D005B1EF5 /* AFNetworkActivityLogger tvOS */ = {
+		29D77AC81BCC4D4D005B1EF5 /* AFNetworkingLogger tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 29D77ACE1BCC4D4D005B1EF5 /* Build configuration list for PBXNativeTarget "AFNetworkActivityLogger tvOS" */;
+			buildConfigurationList = 29D77ACE1BCC4D4D005B1EF5 /* Build configuration list for PBXNativeTarget "AFNetworkingLogger tvOS" */;
 			buildPhases = (
 				29D77AC41BCC4D4D005B1EF5 /* Sources */,
 				29D77AC51BCC4D4D005B1EF5 /* Frameworks */,
@@ -390,14 +390,14 @@
 			);
 			dependencies = (
 			);
-			name = "AFNetworkActivityLogger tvOS";
-			productName = AFNetworkActivityLogger;
-			productReference = 29D77AC91BCC4D4D005B1EF5 /* AFNetworkActivityLogger.framework */;
+			name = "AFNetworkingLogger tvOS";
+			productName = AFNetworkingLogger;
+			productReference = 29D77AC91BCC4D4D005B1EF5 /* AFNetworkingLogger.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		29D96E641BCC34CD00F571A5 /* AFNetworkActivityLogger iOS */ = {
+		29D96E641BCC34CD00F571A5 /* AFNetworkingLogger iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 29D96E6D1BCC34CD00F571A5 /* Build configuration list for PBXNativeTarget "AFNetworkActivityLogger iOS" */;
+			buildConfigurationList = 29D96E6D1BCC34CD00F571A5 /* Build configuration list for PBXNativeTarget "AFNetworkingLogger iOS" */;
 			buildPhases = (
 				29D96E601BCC34CD00F571A5 /* Sources */,
 				29D96E611BCC34CD00F571A5 /* Frameworks */,
@@ -409,14 +409,14 @@
 			);
 			dependencies = (
 			);
-			name = "AFNetworkActivityLogger iOS";
-			productName = AFNetworkActivityLogger;
-			productReference = 29D96E651BCC34CD00F571A5 /* AFNetworkActivityLogger.framework */;
+			name = "AFNetworkingLogger iOS";
+			productName = AFNetworkingLogger;
+			productReference = 29D96E651BCC34CD00F571A5 /* AFNetworkingLogger.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		29F28C281C1F2628006BD785 /* AFNetworkActivityLoggerTests tvOS Tests */ = {
+		29F28C281C1F2628006BD785 /* AFNetworkingLoggerTests tvOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 29F28C311C1F2628006BD785 /* Build configuration list for PBXNativeTarget "AFNetworkActivityLoggerTests tvOS Tests" */;
+			buildConfigurationList = 29F28C311C1F2628006BD785 /* Build configuration list for PBXNativeTarget "AFNetworkingLoggerTests tvOS Tests" */;
 			buildPhases = (
 				29F28C251C1F2628006BD785 /* Sources */,
 				29F28C261C1F2628006BD785 /* Frameworks */,
@@ -428,14 +428,14 @@
 			dependencies = (
 				29F28C301C1F2628006BD785 /* PBXTargetDependency */,
 			);
-			name = "AFNetworkActivityLoggerTests tvOS Tests";
-			productName = "AFNetworkActivityLoggerTests tvOS Tests";
-			productReference = 29F28C291C1F2628006BD785 /* AFNetworkActivityLoggerTests tvOS Tests.xctest */;
+			name = "AFNetworkingLoggerTests tvOS Tests";
+			productName = "AFNetworkingLoggerTests tvOS Tests";
+			productReference = 29F28C291C1F2628006BD785 /* AFNetworkingLoggerTests tvOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		29F28C3B1C1F2C54006BD785 /* AFNetworkActivityLoggerTests OS X Tests */ = {
+		29F28C3B1C1F2C54006BD785 /* AFNetworkingLoggerTests OS X Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 29F28C441C1F2C54006BD785 /* Build configuration list for PBXNativeTarget "AFNetworkActivityLoggerTests OS X Tests" */;
+			buildConfigurationList = 29F28C441C1F2C54006BD785 /* Build configuration list for PBXNativeTarget "AFNetworkingLoggerTests OS X Tests" */;
 			buildPhases = (
 				29F28C381C1F2C54006BD785 /* Sources */,
 				29F28C391C1F2C54006BD785 /* Frameworks */,
@@ -447,9 +447,9 @@
 			dependencies = (
 				29F28C431C1F2C54006BD785 /* PBXTargetDependency */,
 			);
-			name = "AFNetworkActivityLoggerTests OS X Tests";
-			productName = "AFNetworkActivityLoggerTests OS X Tests";
-			productReference = 29F28C3C1C1F2C54006BD785 /* AFNetworkActivityLoggerTests OS X Tests.xctest */;
+			name = "AFNetworkingLoggerTests OS X Tests";
+			productName = "AFNetworkingLoggerTests OS X Tests";
+			productReference = 29F28C3C1C1F2C54006BD785 /* AFNetworkingLoggerTests OS X Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -484,7 +484,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 29D96E5F1BCC34CD00F571A5 /* Build configuration list for PBXProject "AFNetworkActivityLogger" */;
+			buildConfigurationList = 29D96E5F1BCC34CD00F571A5 /* Build configuration list for PBXProject "AFNetworkingLogger" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -496,13 +496,13 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				29D96E641BCC34CD00F571A5 /* AFNetworkActivityLogger iOS */,
-				29D77AA11BCC49C9005B1EF5 /* AFNetworkActivityLogger OS X */,
-				29D77AB41BCC4BDD005B1EF5 /* AFNetworkActivityLogger watchOS */,
-				29D77AC81BCC4D4D005B1EF5 /* AFNetworkActivityLogger tvOS */,
-				297DF5801C1F1CA2001FA807 /* AFNetworkActivityLoggerTests iOS Tests */,
-				29F28C281C1F2628006BD785 /* AFNetworkActivityLoggerTests tvOS Tests */,
-				29F28C3B1C1F2C54006BD785 /* AFNetworkActivityLoggerTests OS X Tests */,
+				29D96E641BCC34CD00F571A5 /* AFNetworkingLogger iOS */,
+				29D77AA11BCC49C9005B1EF5 /* AFNetworkingLogger OS X */,
+				29D77AB41BCC4BDD005B1EF5 /* AFNetworkingLogger watchOS */,
+				29D77AC81BCC4D4D005B1EF5 /* AFNetworkingLogger tvOS */,
+				297DF5801C1F1CA2001FA807 /* AFNetworkingLoggerTests iOS Tests */,
+				29F28C281C1F2628006BD785 /* AFNetworkingLoggerTests tvOS Tests */,
+				29F28C3B1C1F2C54006BD785 /* AFNetworkingLoggerTests OS X Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -623,7 +623,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				297DF5841C1F1CA2001FA807 /* AFNetworkActivityLoggerTests.m in Sources */,
+				297DF5841C1F1CA2001FA807 /* AFNetworkingLoggerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,8 +631,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29D77AAA1BCC49E9005B1EF5 /* AFNetworkActivityLogger.m in Sources */,
-				297DF57A1C1F1058001FA807 /* AFNetworkActivityConsoleLogger.m in Sources */,
+				29D77AAA1BCC49E9005B1EF5 /* AFNetworkingLogger.m in Sources */,
+				297DF57A1C1F1058001FA807 /* AFNetworkingConsoleLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,8 +640,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29D77ABD1BCC4C41005B1EF5 /* AFNetworkActivityLogger.m in Sources */,
-				297DF57B1C1F1058001FA807 /* AFNetworkActivityConsoleLogger.m in Sources */,
+				29D77ABD1BCC4C41005B1EF5 /* AFNetworkingLogger.m in Sources */,
+				297DF57B1C1F1058001FA807 /* AFNetworkingConsoleLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,8 +649,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29D77AD11BCC4D96005B1EF5 /* AFNetworkActivityLogger.m in Sources */,
-				297DF57C1C1F1058001FA807 /* AFNetworkActivityConsoleLogger.m in Sources */,
+				29D77AD11BCC4D96005B1EF5 /* AFNetworkingLogger.m in Sources */,
+				297DF57C1C1F1058001FA807 /* AFNetworkingConsoleLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,8 +658,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29D96E741BCC357B00F571A5 /* AFNetworkActivityLogger.m in Sources */,
-				297DF5791C1F1058001FA807 /* AFNetworkActivityConsoleLogger.m in Sources */,
+				29D96E741BCC357B00F571A5 /* AFNetworkingLogger.m in Sources */,
+				297DF5791C1F1058001FA807 /* AFNetworkingConsoleLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,7 +667,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29F28C341C1F265C006BD785 /* AFNetworkActivityLoggerTests.m in Sources */,
+				29F28C341C1F265C006BD785 /* AFNetworkingLoggerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,7 +675,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29F28C471C1F2C76006BD785 /* AFNetworkActivityLoggerTests.m in Sources */,
+				29F28C471C1F2C76006BD785 /* AFNetworkingLoggerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,17 +684,17 @@
 /* Begin PBXTargetDependency section */
 		297DF5881C1F1CA2001FA807 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 29D96E641BCC34CD00F571A5 /* AFNetworkActivityLogger iOS */;
+			target = 29D96E641BCC34CD00F571A5 /* AFNetworkingLogger iOS */;
 			targetProxy = 297DF5871C1F1CA2001FA807 /* PBXContainerItemProxy */;
 		};
 		29F28C301C1F2628006BD785 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 29D77AC81BCC4D4D005B1EF5 /* AFNetworkActivityLogger tvOS */;
+			target = 29D77AC81BCC4D4D005B1EF5 /* AFNetworkingLogger tvOS */;
 			targetProxy = 29F28C2F1C1F2628006BD785 /* PBXContainerItemProxy */;
 		};
 		29F28C431C1F2C54006BD785 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 29D77AA11BCC49C9005B1EF5 /* AFNetworkActivityLogger OS X */;
+			target = 29D77AA11BCC49C9005B1EF5 /* AFNetworkingLogger OS X */;
 			targetProxy = 29F28C421C1F2C54006BD785 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -710,7 +710,7 @@
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.alamofire.AFNetworkActivityLoggerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alamofire.AFNetworkingLoggerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -725,7 +725,7 @@
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.alamofire.AFNetworkActivityLoggerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alamofire.AFNetworkingLoggerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -748,7 +748,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alamofire.AFNetworkActivityLogger-OS-X";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alamofire.AFNetworkingLogger-OS-X";
 				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -773,7 +773,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alamofire.AFNetworkActivityLogger-OS-X";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alamofire.AFNetworkingLogger-OS-X";
 				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -796,7 +796,7 @@
 				INFOPLIST_FILE = "$(inherited)";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alamofire.AFNetworkActivityLogger-watchOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alamofire.AFNetworkingLogger-watchOS";
 				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -821,7 +821,7 @@
 				INFOPLIST_FILE = "$(inherited)";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alamofire.AFNetworkActivityLogger-watchOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alamofire.AFNetworkingLogger-watchOS";
 				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -845,7 +845,7 @@
 				INFOPLIST_FILE = "$(inherited)";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.alamofire.AFNetworkActivityLogger;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alamofire.AFNetworkingLogger;
 				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -869,7 +869,7 @@
 				INFOPLIST_FILE = "$(inherited)";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.alamofire.AFNetworkActivityLogger;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alamofire.AFNetworkingLogger;
 				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -928,7 +928,7 @@
 				MODULEMAP_FILE = "$(PROJECT_DIR)/Supporting Files/modulemap.module";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = AFNetworkActivityLogger;
+				PRODUCT_NAME = AFNetworkingLogger;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -979,7 +979,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULEMAP_FILE = "$(PROJECT_DIR)/Supporting Files/modulemap.module";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = AFNetworkActivityLogger;
+				PRODUCT_NAME = AFNetworkingLogger;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1004,7 +1004,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.alamofire.AFNetworkActivityLogger;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fpliu.AFNetworkingLogger;
 				PRODUCT_NAME = "$(inherited)";
 				SKIP_INSTALL = YES;
 			};
@@ -1026,7 +1026,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.alamofire.AFNetworkActivityLogger;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fpliu.AFNetworkingLogger;
 				PRODUCT_NAME = "$(inherited)";
 				SKIP_INSTALL = YES;
 			};
@@ -1041,7 +1041,7 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alamofire.AFNetworkActivityLoggerTests-tvOS-Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alamofire.AFNetworkingLoggerTests-tvOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
@@ -1057,7 +1057,7 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alamofire.AFNetworkActivityLoggerTests-tvOS-Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alamofire.AFNetworkingLoggerTests-tvOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
@@ -1076,7 +1076,7 @@
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alamofire.AFNetworkActivityLoggerTests-OS-X-Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alamofire.AFNetworkingLoggerTests-OS-X-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -1094,7 +1094,7 @@
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alamofire.AFNetworkActivityLoggerTests-OS-X-Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alamofire.AFNetworkingLoggerTests-OS-X-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -1103,7 +1103,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		297DF5891C1F1CA2001FA807 /* Build configuration list for PBXNativeTarget "AFNetworkActivityLoggerTests iOS Tests" */ = {
+		297DF5891C1F1CA2001FA807 /* Build configuration list for PBXNativeTarget "AFNetworkingLoggerTests iOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				297DF58A1C1F1CA2001FA807 /* Debug */,
@@ -1112,7 +1112,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		29D77AA71BCC49C9005B1EF5 /* Build configuration list for PBXNativeTarget "AFNetworkActivityLogger OS X" */ = {
+		29D77AA71BCC49C9005B1EF5 /* Build configuration list for PBXNativeTarget "AFNetworkingLogger OS X" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29D77AA81BCC49C9005B1EF5 /* Debug */,
@@ -1121,7 +1121,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		29D77ABA1BCC4BDD005B1EF5 /* Build configuration list for PBXNativeTarget "AFNetworkActivityLogger watchOS" */ = {
+		29D77ABA1BCC4BDD005B1EF5 /* Build configuration list for PBXNativeTarget "AFNetworkingLogger watchOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29D77ABB1BCC4BDD005B1EF5 /* Debug */,
@@ -1130,7 +1130,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		29D77ACE1BCC4D4D005B1EF5 /* Build configuration list for PBXNativeTarget "AFNetworkActivityLogger tvOS" */ = {
+		29D77ACE1BCC4D4D005B1EF5 /* Build configuration list for PBXNativeTarget "AFNetworkingLogger tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29D77ACF1BCC4D4D005B1EF5 /* Debug */,
@@ -1139,7 +1139,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		29D96E5F1BCC34CD00F571A5 /* Build configuration list for PBXProject "AFNetworkActivityLogger" */ = {
+		29D96E5F1BCC34CD00F571A5 /* Build configuration list for PBXProject "AFNetworkingLogger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29D96E6B1BCC34CD00F571A5 /* Debug */,
@@ -1148,7 +1148,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		29D96E6D1BCC34CD00F571A5 /* Build configuration list for PBXNativeTarget "AFNetworkActivityLogger iOS" */ = {
+		29D96E6D1BCC34CD00F571A5 /* Build configuration list for PBXNativeTarget "AFNetworkingLogger iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29D96E6E1BCC34CD00F571A5 /* Debug */,
@@ -1157,7 +1157,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		29F28C311C1F2628006BD785 /* Build configuration list for PBXNativeTarget "AFNetworkActivityLoggerTests tvOS Tests" */ = {
+		29F28C311C1F2628006BD785 /* Build configuration list for PBXNativeTarget "AFNetworkingLoggerTests tvOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29F28C321C1F2628006BD785 /* Debug */,
@@ -1166,7 +1166,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		29F28C441C1F2C54006BD785 /* Build configuration list for PBXNativeTarget "AFNetworkActivityLoggerTests OS X Tests" */ = {
+		29F28C441C1F2C54006BD785 /* Build configuration list for PBXNativeTarget "AFNetworkingLoggerTests OS X Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29F28C451C1F2C54006BD785 /* Debug */,
