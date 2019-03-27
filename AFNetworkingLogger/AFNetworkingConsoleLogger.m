@@ -1,65 +1,42 @@
-// AFNetworkingConsoleLogger.h
+//AFNetworking: http://afnetworking.com
 //
-// Copyright (c) 2018 AFNetworking (http://afnetworking.com/)
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
+//HTTP1.1 Protocol Reference:
+//https://tools.ietf.org/html/rfc2616
+//https://www.w3.org/Protocols/rfc2616/rfc2616.txt
 
 #import "AFNetworkingConsoleLogger.h"
 
 @implementation AFNetworkingConsoleLogger
 
-- (id)init {
-    self = [super init];
-    if (!self) {
-        return nil;
-    }
-    
-    self.level = AFLoggerLevelInfo;
-    
-    return self;
-}
-
-
 - (void)URLSessionTaskDidStart:(NSURLSessionTask *)task {
-    NSURLRequest *request = task.originalRequest;
+    NSString *str = @"\n----------------------------------------------------------------\n";
     
-    NSString *requestMethod = [request HTTPMethod];
+    NSURLRequest *request = task.originalRequest;
     
     NSURL *url = [request URL];
     
-    NSString *urlPath = [url path];
+    NSString *path = [url path];
+    if (path.length == 0) {
+        path = @"/";
+    }
+    
+    str = [NSString stringWithFormat:@"%@%@ %@", str, [request HTTPMethod], path];
+    
     NSString *query = [url query];
     if (query) {
-        urlPath = [NSString stringWithFormat:@"%@?%@", urlPath, query];
+        str = [NSString stringWithFormat:@"%@?%@ HTTP/1.1\n", str, query];
+    } else {
+        str = [NSString stringWithFormat:@"%@ HTTP/1.1\n", str];
     }
     
-    NSString *portStr;
+    str = [NSString stringWithFormat:@"%@Host: %@", str, [url host]];
+    
     NSNumber *port = [url port];
     if (port) {
-        portStr = [NSString stringWithFormat:@"%@", port];
+        str = [NSString stringWithFormat:@"%@:%@\n", str, port];
     } else {
-        portStr = @"80";
+        str = [NSString stringWithFormat:@"%@\n", str];
     }
-    NSString *host = [NSString stringWithFormat:@"%@://%@:%@", [url scheme], [url host], portStr];
-    
-    NSString *format = @"\n--------------------------------------------------\n%@ %@ HTTP/1.1\nHost: %@\n";
-    NSString *str = [NSString stringWithFormat:format, requestMethod, urlPath, host];
     
     NSDictionary *headers = [request allHTTPHeaderFields];
     NSArray *keys = headers.allKeys;
@@ -69,15 +46,12 @@
         str = [NSString stringWithFormat:@"%@%@: %@\n", str, key, value];
     }
     
-    NSString *bodyStr;
     NSData *requestBody = [request HTTPBody];
     if (requestBody) {
-        bodyStr = [[NSString alloc] initWithData:requestBody encoding:NSUTF8StringEncoding];
-    } else {
-        bodyStr = @"";
+        NSString *bodyStr = [[NSString alloc] initWithData:requestBody encoding:NSUTF8StringEncoding];
+        str = [NSString stringWithFormat:@"%@\n%@\n", str, bodyStr];
     }
-    
-    str = [NSString stringWithFormat:@"%@\n%@\n--------------------------------------------------\n", str, bodyStr];
+    str = [NSString stringWithFormat:@"%@----------------------------------------------------------------\n", str];
     
     NSLog(@"%@", str);
 }
@@ -87,14 +61,15 @@
     NSString *str = @"\n----------------------------------------------------------------\n";
     
     NSString *url = [[task.response URL] absoluteString];
-    
-    str = [NSString stringWithFormat:@"%@%@--->\nHTTP/1.1 ", str, url];
+    str = [NSString stringWithFormat:@"%@%@--->\n\n", str, url];
     
     if ([task.response isKindOfClass:[NSHTTPURLResponse class]]) {
         NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
         
         NSUInteger responseStatusCode = (NSUInteger)[response statusCode];
-        str = [NSString stringWithFormat:@"%@%lu\n", str, responseStatusCode];
+        NSString *reason = [self getReasonByStatusCode:responseStatusCode];
+        
+        str = [NSString stringWithFormat:@"%@HTTP/1.1 %lu %@\n", str, responseStatusCode, reason];
         
         NSString *contentType = nil;
         NSDictionary *responseHeaderFields = [response allHeaderFields];
@@ -112,29 +87,83 @@
         
         id responseBody = responseObject;
         
-        if(contentType && ([contentType containsString:@"application/json"]
-                           || [contentType containsString:@"application/xml"]
-                           || [contentType containsString:@"application/x-www-form-urlencoded"]
-                           || [contentType containsString:@"text/html"])) {
-            if ([responseObject isKindOfClass:[NSData class]]) {
-                responseBody = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-            } else if ([responseObject isKindOfClass:[NSDictionary class]]) {
-                if ([NSJSONSerialization isValidJSONObject:responseObject]) {
-                    NSError *error;
-                    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:&error];
-                    if (error) {
-                        NSLog(@"Error:%@" , error);
-                    } else {
-                        responseBody =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        if (responseObject) {
+            if(contentType && ([contentType containsString:@"application/json"]
+                               || [contentType containsString:@"application/xml"]
+                               || [contentType containsString:@"application/x-www-form-urlencoded"]
+                               || [contentType containsString:@"text/html"])) {
+                if ([responseObject isKindOfClass:[NSData class]]) {
+                    responseBody = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                } else if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                    if ([NSJSONSerialization isValidJSONObject:responseObject]) {
+                        NSError *error;
+                        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:&error];
+                        if (error) {
+                            NSLog(@"Error:%@" , error);
+                        } else {
+                            responseBody =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+                        }
                     }
                 }
             }
+            str = [NSString stringWithFormat:@"%@\n%@\n", str, responseBody];
         }
-        
-        str = [NSString stringWithFormat:@"%@%@\n------------------------------------------------\n", str, responseBody];
+        str = [NSString stringWithFormat:@"%@----------------------------------------------------------------\n", str];
     }
     
-    NSLog(@"%@", str);
+    NSLog(@"responseBody = %@", str);
+}
+
+- (NSString*) getReasonByStatusCode:(NSUInteger)statusCode {
+    switch (statusCode) {
+        case 100: return @"Continue";
+        case 101: return @"Switching Protocols";
+            
+        case 200: return @"OK";
+        case 201: return @"Created";
+        case 202: return @"Accepted";
+        case 203: return @"Non-Authoritative Information";
+        case 204: return @"No Content";
+        case 205: return @"Reset Content";
+        case 206: return @"Partial Content";
+            
+        case 300: return @"Multiple Choices";
+        case 301: return @"Moved Permanently";
+        case 302: return @"Found";
+        case 303: return @"See Other";
+        case 304: return @"Not Modified";
+        case 305: return @"Use Proxy";
+        case 306: return @"(Unused)";
+        case 307: return @"Temporary Redirect";
+            
+        case 400: return @"Bad Request";
+        case 401: return @"Unauthorized";
+        case 402: return @"Payment Required";
+        case 403: return @"Forbidden";
+        case 404: return @"Not Found";
+        case 405: return @"Method Not Allowed";
+        case 406: return @"Not Acceptable";
+        case 407: return @"Proxy Authentication Required";
+        case 408: return @"Request Timeout";
+        case 409: return @"Conflict";
+        case 410: return @"Gone";
+        case 411: return @"Length Required";
+        case 412: return @"Precondition Failed";
+        case 413: return @"Request Entity Too Large";
+        case 414: return @"Request-URI Too Long";
+        case 415: return @"Unsupported Media Type";
+        case 416: return @"Requested Range Not Satisfiable";
+        case 417: return @"Expectation Failed";
+            
+        case 500: return @"Internal Server Error";
+        case 501: return @"Not Implemented";
+        case 502: return @"Bad Gateway";
+        case 503: return @"Service Unavailable";
+        case 504: return @"Gateway Timeout";
+        case 505: return @"HTTP Version Not Supported";
+            
+        default: return @"Unkown";
+    }
 }
 
 @end
