@@ -42,11 +42,13 @@ Accept-Language: en;q=1
 {"username":"fpliu","password":"123456"}
 --------------------------------------------------
 https://www.wanandroid.com/user/login--->
+
 HTTP/1.1 200
 Transfer-Encoding: Identity
 Content-Type: application/json;charset=UTF-8
 Server: Apache-Coyote/1.1
 Date: Mon, 25 Mar 2019 05:48:09 GMT
+
 {
   "code" : 1,
   "message" : "用户名或密码错误"
