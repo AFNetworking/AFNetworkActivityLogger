@@ -117,11 +117,12 @@
     [manager
      GET:@"ip"
      parameters:nil
+     headers:nil
      progress:nil
      success:nil
      failure:nil];
     [self waitForExpectationsWithTimeout:10.0 handler:nil];
-    [manager invalidateSessionCancelingTasks:YES];
+    [manager invalidateSessionCancelingTasks:YES resetSession:NO];
 }
 
 - (void)testThatFinishCallbackIsReceived {
@@ -143,11 +144,12 @@
     [manager
      GET:@"ip"
      parameters:nil
+     headers:nil
      progress:nil
      success:nil
      failure:nil];
     [self waitForExpectationsWithTimeout:10.0 handler:nil];
-    [manager invalidateSessionCancelingTasks:YES];
+    [manager invalidateSessionCancelingTasks:YES resetSession:NO];
 }
 
 - (void)testThatFinishCallbackIsReceivedWithError {
@@ -169,11 +171,12 @@
     [manager
      GET:@"status/404"
      parameters:nil
+     headers:nil
      progress:nil
      success:nil
      failure:nil];
     [self waitForExpectationsWithTimeout:10.0 handler:nil];
-    [manager invalidateSessionCancelingTasks:YES];
+    [manager invalidateSessionCancelingTasks:YES resetSession:NO];
 }
 
 - (void)testThatFilterPredicateIsRespectedForStartCallback {
@@ -198,13 +201,14 @@
     [manager
      GET:@"ip"
      parameters:nil
+     headers:nil
      progress:nil
      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
          [expectation fulfill];
      }
      failure:nil];
     [self waitForExpectationsWithTimeout:10.0 handler:nil];
-    [manager invalidateSessionCancelingTasks:YES];
+    [manager invalidateSessionCancelingTasks:YES resetSession:NO];
 }
 
 - (void)testThatFilterPredicateIsRespectedForFinishCallback {
@@ -229,13 +233,14 @@
     [manager
      GET:@"ip"
      parameters:nil
+     headers:nil
      progress:nil
      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
          [expectation fulfill];
      }
      failure:nil];
     [self waitForExpectationsWithTimeout:10.0 handler:nil];
-    [manager invalidateSessionCancelingTasks:YES];
+    [manager invalidateSessionCancelingTasks:YES resetSession:NO];
 }
 
 - (void)testThatIndividualLoggerIsNotCalledWhenLoggerIsNilledOut {
@@ -256,13 +261,14 @@
     [manager
      GET:@"ip"
      parameters:nil
+     headers:nil
      progress:nil
      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
          [expectation fulfill];
      }
      failure:nil];
     [self waitForExpectationsWithTimeout:10.0 handler:nil];
-    [manager invalidateSessionCancelingTasks:YES];
+    [manager invalidateSessionCancelingTasks:YES resetSession:NO];
 }
 
 
